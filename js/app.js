@@ -1,6 +1,6 @@
 /**
  * ALTA JODA FEST — Main JavaScript Application
- * Section Switcher (No infinite scroll), i18n, Event Ticketing, Instagram Lightbox, Merch Selectors
+ * Mobile Drawer + Desktop Dropdown + Section Switcher + i18n + Calendar + Lightbox
  */
 
 (function () {
@@ -63,13 +63,6 @@
     }
   ];
 
-  const PAST_EVENTS = [
-    { city: 'Miami', date: '13 Junio 2026', venue: 'ZeyZey Little River' },
-    { city: 'Chicago', date: '21 Marzo 2026', venue: 'Subterranean Wicker Park' },
-    { city: 'Miami', date: '20 Diciembre 2025', venue: 'ZeyZey Little River' },
-    { city: 'New York', date: '18 Octubre 2025', venue: 'Brooklyn Warehouse' }
-  ];
-
   const VENUES = {
     miami: {
       name: 'Miami',
@@ -78,20 +71,20 @@
       q: 'ZeyZey, 353 NE 61st St, Miami, FL 33137',
       notes: {
         es: [
-          'Estacionamiento gratis en el lote público cruzando la 61',
-          '21+ con documento válido (ID o pasaporte físico)',
-          'Espacio al aire libre con patio y sectores cubiertos',
-          'Comida callejera de Tacos María, barra de Fernet y coctelería',
-          'Aviso: usamos luces estroboscópicas durante la fiesta',
+          'Estacionamiento en la zona y servicios de ride-sharing (Uber/Lyft)',
+          '21+ con documento válido (ID de EE.UU. o pasaporte físico)',
+          'Espacio al aire libre con sectores cubiertos',
+          'Comida callejera de Tacos María, barra de Fernet y cócteles',
+          'Aviso: luces estroboscópicas durante la fiesta',
           'Puertas 21:00 hs · la pista se llena fuerte desde las 23:00'
         ],
         en: [
-          'Free parking in public lot across 61st St',
+          'Street parking and ride-sharing (Uber/Lyft) recommended',
           '21+ with valid photo ID or physical passport',
-          'Open-air patio venue with covered dance spots',
-          'Street food by Tacos María, Fernet bar & craft cocktails',
-          'Heads up: strobe lighting effects used all night',
-          'Doors 9 PM · energy peaks right around 11 PM'
+          'Open-air patio venue with covered dance floor areas',
+          'Street food by Tacos María, Fernet bar & cocktails',
+          'Heads up: strobe lighting effects used through the night',
+          'Doors 9 PM · peak energy around 11 PM'
         ]
       }
     },
@@ -104,14 +97,14 @@
         es: [
           'Estacionamiento pago sobre Elm St y lotes de Deep Ellum',
           '21+ con documento válido',
-          'Pista indoor icónica + patio al aire libre',
+          'Pista indoor clásica + patio al aire libre',
           'Barra completa y food truck en el patio exterior',
           'Puertas 21:00 hs'
         ],
         en: [
           'Paid parking on Elm St and Deep Ellum district lots',
           '21+ with valid photo ID',
-          'Legendary indoor dance floor + open patio',
+          'Indoor dance hall + outdoor patio',
           'Full bar & patio food truck',
           'Doors 9 PM'
         ]
@@ -133,7 +126,7 @@
         en: [
           'Woodley Park or Columbia Heights metro, 10 min walk',
           '21+ with valid photo ID',
-          'Ground level lounge, dance floor upstairs',
+          'Lounge on main floor, dance floor upstairs',
           'Latin kitchen open until midnight',
           'Doors 10 PM'
         ]
@@ -146,7 +139,7 @@
       q: 'The Truman, 601 E Truman Rd, Kansas City, MO 64106',
       notes: {
         es: [
-          'Estacionamiento gratuito en el lote propio sobre Truman Rd',
+          'Estacionamiento en el lote propio sobre Truman Rd',
           '21+ con documento válido',
           'Entrada y sanitarios totalmente accesibles',
           'Barra completa con Fernet Branca oficial y cócteles',
@@ -155,7 +148,7 @@
         en: [
           'Free parking in dedicated lot on Truman Rd',
           '21+ with valid photo ID',
-          'Fully accessible entrance & restrooms',
+          'Accessible entrance & restrooms',
           'Full bar with official Fernet Branca & cocktails',
           'Doors 9 PM'
         ]
@@ -163,142 +156,113 @@
     }
   };
 
-  // i18n Translations Dictionary
   const I18N = {
     es: {
       badgeTour: 'La fiesta argentina itinerante de EE.UU.',
       hostBy: 'Con Dustin Luke',
       since: 'since 2022',
       cumbiaPerreo: 'Cumbia, Perreo y Fernet',
-      menuBtn: 'Sección:',
+      menuLabel: 'Secciones ▾',
       selectSection: '⚡ Seleccionar Sección',
       nextEventBadge: '🔥 Próxima Fiesta Confirmada',
       getTickets: 'Sacá tu entrada',
       seeAllDates: 'Ver todas las fechas ➔',
       doors: 'Puertas',
       fromPrice: 'Desde',
-      buyTicket: 'Sacar Entrada',
-      addCalendar: 'Agregar al Calendario (.ics)',
+      buyTicket: 'Sacar Entrada 🎟️',
+      addCalendar: '📅 Agregar al Calendario',
       ticketsVia: 'Venta oficial por',
-      pastDatesTitle: 'Fechas Anteriores (Historial)',
-      soldOut: 'Agotado',
-      collabTag: 'Cápsula Exclusiva de Streetwear',
-      collabTitle: 'Alta Joda Fest × MADE MOBB',
-      collabDesc: 'Unión directa entre la cultura cumbiera argentina y la marca pesada de streetwear de Kansas City MADE MOBB. Diseños en algodón premium con gráfica serigrafiada del carpincho con Fernet y la celeste y blanca.',
+      collabTag: 'Cápsula Oficial · Streetwear',
+      collabTitle: 'Alta Joda × MADE MOBB',
+      collabDesc: 'Unión directa entre la cultura cumbiera argentina y la marca de streetwear de Kansas City MADE MOBB. Diseños en algodón premium con serigrafía del carpincho con Fernet y la celeste y blanca.',
       shopCollabBtn: 'Ver colección en MADE MOBB ↗',
-      usShipping: '📦 Envíos a todo Estados Unidos y pickup en tienda',
+      usShipping: '📦 Envíos directos a todo Estados Unidos',
       buyOnMobb: 'Comprar en MADE MOBB ↗',
-      selectSize: 'Talle:',
-      photosHeroTag: 'En Vivo · Galería de la Fiesta',
+      selectSize: 'Talles disponibles:',
+      photosHeroTag: '📸 En Vivo · Galería de la Fiesta',
       seeIgFeed: 'Abrir feed @altajodafest ↗',
-      igSectionTitle: 'Fotos & Reels en Vivo',
+      igSectionTitle: 'Fotos & Instagram',
       igSectionSub: 'El quilombo, el pogo, los fernetazos y la cumbia en directo desde cada ciudad.',
       igFollowBtn: 'Seguir en Instagram @altajodafest ↗',
       igBio: 'La única fiesta argentina itinerante en EE.UU. 🇦🇷 Cumbia, cuarteto, RKT y Fernet con coca.',
       viewOnIg: 'Ver en Instagram ↗',
-      entradasTitle: 'Precios & Tiers de Entradas',
+      entradasTitle: 'Precios & Entradas',
       entradasSub: 'Cuanto antes comprás, más barato pagás. Los lotes se agotan y no se reabren.',
-      earlyNow: 'Ahora (Preventa)',
-      atDoor: 'En la puerta',
-      platformNote: 'La venta corre según la ciudad por Posh, Shotgun o Eventbrite. Si compraste tu entrada y no podés ir, transferila desde la app de la ticketera.',
-      locTitle: 'Dónde es · Ubicaciones',
+      locTitle: 'Dónde es',
       locSub: 'Elegí tu ciudad para ver la dirección exacta, mapas y recomendaciones para llegar.',
-      howToGoogle: 'Cómo llegar · Google Maps',
-      howToApple: 'Cómo llegar · Apple Maps',
-      faqTitle: 'Preguntas Frecuentes (FAQ)',
-      faqSub: 'Todo lo que tenés que saber antes de venir a manijear.',
-      contactTitle: 'Contacto & Redes Oficiales',
+      howToGoogle: 'Cómo llegar · Google Maps ↗',
+      howToApple: 'Cómo llegar · Apple Maps ↗',
+      faqTitle: 'Preguntas Frecuentes',
+      faqSub: 'Todo lo que tenés que saber antes de caer a la fiesta.',
+      contactTitle: 'Contacto & Redes',
       contactSub: 'Escribinos para mesas VIP, fechas en tu ciudad o activaciones de marcas.',
-      igContactNote: 'Preventas exclusivas, sorteos de Fernet y anuncios en tiempo real.',
-      myCityCta: 'Quiero Alta Joda en mi ciudad ✍️',
-      sponsorsTitle: 'Marcas & Sponsors',
-      sponsorsBody: 'Activaciones con la comunidad argentina y latina más eufórica de Estados Unidos. Pedí nuestro media kit con métricas y alcance por ciudad.',
-      sponsorBtn: 'Pedir Media Kit',
       days: 'DÍAS',
       hours: 'HS',
       mins: 'MIN',
-      secs: 'SEG',
-      nextSec: 'Siguiente Sección',
-      backToTop: 'Subir',
-      exploreMenu: 'Explorar Menú'
+      secs: 'SEG'
     },
     en: {
       badgeTour: 'The only touring Argentine party in the U.S.',
       hostBy: 'Hosted by Dustin Luke',
       since: 'since 2022',
       cumbiaPerreo: 'Cumbia, Perreo & Fernet',
-      menuBtn: 'Section:',
+      menuLabel: 'Sections ▾',
       selectSection: '⚡ Select Section',
       nextEventBadge: '🔥 Next Confirmed Party',
       getTickets: 'Get your tickets',
       seeAllDates: 'See all tour dates ➔',
       doors: 'Doors',
       fromPrice: 'From',
-      buyTicket: 'Get Tickets',
-      addCalendar: 'Add to Calendar (.ics)',
+      buyTicket: 'Get Tickets 🎟️',
+      addCalendar: '📅 Add to Calendar',
       ticketsVia: 'Official tickets on',
-      pastDatesTitle: 'Past Tour Dates (History)',
-      soldOut: 'Sold out',
-      collabTag: 'Exclusive Streetwear Capsule',
-      collabTitle: 'Alta Joda Fest × MADE MOBB',
+      collabTag: 'Official Streetwear Capsule',
+      collabTitle: 'Alta Joda × MADE MOBB',
       collabDesc: 'A powerhouse streetwear crossover between Argentine cumbia party culture and Kansas City icon MADE MOBB. Heavyweight premium tees featuring the capybara with Fernet and Argentine colors.',
       shopCollabBtn: 'View collection on MADE MOBB ↗',
-      usShipping: '📦 Ships nationwide across the U.S. + local KC pickup',
+      usShipping: '📦 Ships nationwide across the U.S.',
       buyOnMobb: 'Buy on MADE MOBB ↗',
-      selectSize: 'Size:',
-      photosHeroTag: 'Live · Party Photo Reel',
+      selectSize: 'Available sizes:',
+      photosHeroTag: '📸 Live · Party Photo Reel',
       seeIgFeed: 'Open feed @altajodafest ↗',
-      igSectionTitle: 'Live Photos & Reels',
+      igSectionTitle: 'Photos & Instagram',
       igSectionSub: 'The crowd, the dancing, the Fernet and the real Argentine energy in every city.',
       igFollowBtn: 'Follow on Instagram @altajodafest ↗',
       igBio: 'The only touring Argentine fiesta across the USA 🇦🇷 Cumbia, cuarteto, RKT & Fernet.',
       viewOnIg: 'View on Instagram ↗',
-      entradasTitle: 'Tickets & Pricing Tiers',
+      entradasTitle: 'Tickets & Pricing',
       entradasSub: 'The earlier you purchase, the cheaper it is. Tiers close permanently when sold out.',
-      earlyNow: 'Now (Early Bird)',
-      atDoor: 'At the door',
-      platformNote: 'Official ticketing runs on Posh, Shotgun or Eventbrite depending on venue. Tickets can be transferred in-app if needed.',
-      locTitle: 'Where It Happens · Venues',
+      locTitle: 'Where It Happens',
       locSub: 'Choose your city to view exact venue address, live maps and local venue tips.',
-      howToGoogle: 'Directions · Google Maps',
-      howToApple: 'Directions · Apple Maps',
-      faqTitle: 'Frequently Asked Questions (FAQ)',
+      howToGoogle: 'Directions · Google Maps ↗',
+      howToApple: 'Directions · Apple Maps ↗',
+      faqTitle: 'Frequently Asked Questions',
       faqSub: 'Everything you need to know before joining the night.',
-      contactTitle: 'Contact & Official Links',
+      contactTitle: 'Contact & Links',
       contactSub: 'Reach out for VIP tables, city requests or brand partnerships.',
-      igContactNote: 'Early access tickets, Fernet giveaways and real-time updates.',
-      myCityCta: 'Bring Alta Joda to my city ✍️',
-      sponsorsTitle: 'Brand Partnerships & Sponsors',
-      sponsorsBody: 'Experiential activations connecting with the most passionate Argentine and Latin crowd across major U.S. metros. Request our brand media kit.',
-      sponsorBtn: 'Request Media Kit',
       days: 'DAYS',
       hours: 'HRS',
       mins: 'MIN',
-      secs: 'SEC',
-      nextSec: 'Next Section',
-      backToTop: 'Back to Top',
-      exploreMenu: 'Explore Menu'
+      secs: 'SEC'
     }
   };
 
-  // Section names map
   const SECTION_NAMES = {
     inicio: { es: 'Inicio', en: 'Home', icon: '🏠' },
     fechas: { es: 'Próximas Fechas', en: 'Tour Dates', icon: '📅' },
     remeras: { es: 'Remeras MADE MOBB', en: 'Merch Shirts', icon: '👕' },
     fotos: { es: 'Fotos & Instagram', en: 'Photos & IG', icon: '📸' },
-    entradas: { es: 'Precios & Tiers', en: 'Ticket Tiers', icon: '🎟️' },
-    locacion: { es: 'Dónde es (Venues)', en: 'Venues & Maps', icon: '📍' },
+    entradas: { es: 'Precios & Entradas', en: 'Ticket Tiers', icon: '🎟️' },
+    locacion: { es: 'Dónde es', en: 'Venues & Maps', icon: '📍' },
     faq: { es: 'Preguntas Frecuentes', en: 'FAQ', icon: '❓' },
     contacto: { es: 'Contacto & Redes', en: 'Contact', icon: '📬' }
   };
 
-  // State
   let currentLang = localStorage.getItem('alta_joda_lang') || 'es';
   let currentSection = 'inicio';
   let activeVenueKey = 'miami';
 
-  // --- SECTION NAVIGATION LOGIC (NO INFINITE SCROLL) ---
+  // --- SECTION NAVIGATION LOGIC ---
   function switchSection(targetId, updateHash = true) {
     if (!targetId || !document.getElementById(`section-${targetId}`)) {
       targetId = 'inicio';
@@ -307,67 +271,69 @@
     currentSection = targetId;
 
     // Show target section, hide others
-    const sections = document.querySelectorAll('.content-section');
-    sections.forEach((sec) => {
-      if (sec.id === `section-${targetId}`) {
-        sec.classList.add('active');
-      } else {
-        sec.classList.remove('active');
-      }
+    document.querySelectorAll('.content-section').forEach((sec) => {
+      sec.classList.toggle('active', sec.id === `section-${targetId}`);
     });
 
-    // Update Dropdown current label
-    const sectionInfo = SECTION_NAMES[targetId] || { es: targetId, en: targetId, icon: '⚡' };
-    const labelSpan = document.getElementById('current-section-label');
-    if (labelSpan) {
-      labelSpan.textContent = `${sectionInfo.icon} ${sectionInfo[currentLang] || sectionInfo.es}`;
-    }
-
-    // Update active dropdown items
-    document.querySelectorAll('.dropdown-item').forEach((item) => {
-      const sec = item.getAttribute('data-target-section');
-      item.classList.toggle('active', sec === targetId);
+    // Update active nav links (desktop)
+    document.querySelectorAll('.nav-link-btn').forEach((btn) => {
+      btn.classList.toggle('active', btn.getAttribute('data-target-section') === targetId);
     });
 
-    // Update active quick nav pills
-    document.querySelectorAll('.nav-pill').forEach((pill) => {
-      const sec = pill.getAttribute('data-target-section');
-      pill.classList.toggle('active', sec === targetId);
+    // Update active popover items (desktop)
+    document.querySelectorAll('.popover-item').forEach((item) => {
+      item.classList.toggle('active', item.getAttribute('data-target-section') === targetId);
     });
 
-    // Close dropdown menu
-    closeDropdown();
+    // Update active drawer items (mobile)
+    document.querySelectorAll('.mobile-drawer-item').forEach((item) => {
+      item.classList.toggle('active', item.getAttribute('data-target-section') === targetId);
+    });
 
-    // Scroll smoothly to top of page (below header)
+    // Close popovers and drawers
+    closeDesktopPopover();
+    closeMobileDrawer();
+
+    // Scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
-    // Update URL hash without jumping
     if (updateHash) {
       history.replaceState(null, '', `#${targetId}`);
     }
   }
 
-  function toggleDropdown() {
-    const menu = document.getElementById('section-dropdown-menu');
-    const btn = document.getElementById('section-menu-btn');
-    if (!menu || !btn) return;
-    const isOpen = menu.classList.contains('open');
+  // Desktop Popover Control
+  function toggleDesktopPopover() {
+    const popover = document.getElementById('desktop-dropdown-popover');
+    const trigger = document.getElementById('desktop-dropdown-trigger');
+    if (!popover || !trigger) return;
+    const isOpen = popover.classList.contains('open');
     if (isOpen) {
-      closeDropdown();
+      closeDesktopPopover();
     } else {
-      menu.classList.add('open');
-      btn.classList.add('active');
-      btn.setAttribute('aria-expanded', 'true');
+      popover.classList.add('open');
+      trigger.classList.add('active');
     }
   }
 
-  function closeDropdown() {
-    const menu = document.getElementById('section-dropdown-menu');
-    const btn = document.getElementById('section-menu-btn');
-    if (!menu || !btn) return;
-    menu.classList.remove('open');
-    btn.classList.remove('active');
-    btn.setAttribute('aria-expanded', 'false');
+  function closeDesktopPopover() {
+    const popover = document.getElementById('desktop-dropdown-popover');
+    const trigger = document.getElementById('desktop-dropdown-trigger');
+    if (popover) popover.classList.remove('open');
+    if (trigger) trigger.classList.remove('active');
+  }
+
+  // Mobile Drawer Control
+  function openMobileDrawer() {
+    const drawer = document.getElementById('mobile-nav-drawer');
+    if (drawer) drawer.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileDrawer() {
+    const drawer = document.getElementById('mobile-nav-drawer');
+    if (drawer) drawer.classList.remove('open');
+    document.body.style.overflow = '';
   }
 
   // --- LANGUAGE SWITCHER ---
@@ -376,14 +342,12 @@
     currentLang = lang;
     localStorage.setItem('alta_joda_lang', lang);
 
-    // Toggle active on lang buttons
     document.querySelectorAll('.lang-btn').forEach((b) => {
       const bLang = b.getAttribute('data-lang');
       b.classList.toggle('active', bLang === lang);
       b.setAttribute('aria-pressed', bLang === lang ? 'true' : 'false');
     });
 
-    // Translate texts
     document.querySelectorAll('[data-i18n]').forEach((el) => {
       const key = el.getAttribute('data-i18n');
       if (I18N[lang] && I18N[lang][key]) {
@@ -391,31 +355,13 @@
       }
     });
 
-    // Update section label in dropdown button
-    const sectionInfo = SECTION_NAMES[currentSection];
-    const labelSpan = document.getElementById('current-section-label');
-    if (labelSpan && sectionInfo) {
-      labelSpan.textContent = `${sectionInfo.icon} ${sectionInfo[lang] || sectionInfo.es}`;
-    }
-
-    // Update dropdown item names
-    document.querySelectorAll('.dropdown-item').forEach((item) => {
-      const secKey = item.getAttribute('data-target-section');
+    // Update nav links text
+    document.querySelectorAll('.nav-link-btn').forEach((btn) => {
+      const secKey = btn.getAttribute('data-target-section');
       const info = SECTION_NAMES[secKey];
-      if (info) {
-        const titleSpan = item.querySelector('.dropdown-item-title');
-        if (titleSpan) titleSpan.textContent = info[lang];
-      }
+      if (info) btn.textContent = info[lang];
     });
 
-    // Update nav pill names
-    document.querySelectorAll('.nav-pill').forEach((pill) => {
-      const secKey = pill.getAttribute('data-target-section');
-      const info = SECTION_NAMES[secKey];
-      if (info) pill.textContent = info[lang];
-    });
-
-    // Re-render venues notes for active venue
     renderVenueNotes();
   }
 
@@ -424,10 +370,8 @@
     if (!VENUES[venueKey]) return;
     activeVenueKey = venueKey;
 
-    // Tabs styling
     document.querySelectorAll('.city-tab-btn').forEach((btn) => {
-      const k = btn.getAttribute('data-venue');
-      btn.classList.toggle('active', k === venueKey);
+      btn.classList.toggle('active', btn.getAttribute('data-venue') === venueKey);
     });
 
     const v = VENUES[venueKey];
@@ -470,7 +414,7 @@
     if (!ev) return;
     const pad = (n) => String(n).padStart(2, '0');
     const d = new Date(ev.start);
-    const end = new Date(d.getTime() + 6 * 3600 * 1000); // 6 hours party
+    const end = new Date(d.getTime() + 6 * 3600 * 1000);
     const stamp = (x) =>
       `${x.getUTCFullYear()}${pad(x.getUTCMonth() + 1)}${pad(x.getUTCDate())}T${pad(x.getUTCHours())}${pad(x.getUTCMinutes())}00Z`;
 
@@ -486,7 +430,7 @@
       `DTEND:${stamp(end)}`,
       `SUMMARY:Alta Joda Fest — ${ev.city} (${ev.venue})`,
       `LOCATION:${ev.venue}, ${ev.address}`,
-      `DESCRIPTION:La fiesta argentina itinerante en EE.UU. Cumbia, cuarteto, perreo y Fernet. Entradas: ${ev.url}`,
+      `DESCRIPTION:La fiesta argentina itinerante en EE.UU. Cumbia, perreo y Fernet. Entradas: ${ev.url}`,
       `URL:${ev.url}`,
       'STATUS:CONFIRMED',
       'END:VEVENT',
@@ -504,7 +448,6 @@
 
   // --- COUNTDOWN TIMER ---
   function initCountdown() {
-    // Upcoming event target: Oct 3, 2026 21:00 EDT
     const targetDate = new Date('2026-10-03T21:00:00-04:00').getTime();
 
     function update() {
@@ -541,22 +484,17 @@
     imgEl.src = imgSrc;
     if (capEl) capEl.textContent = captionText || 'Alta Joda Fest 🇦🇷 @altajodafest';
     modal.classList.add('open');
-    modal.setAttribute('aria-hidden', 'false');
   }
 
   function closeLightbox() {
     const modal = document.getElementById('photo-lightbox');
-    if (!modal) return;
-    modal.classList.remove('open');
-    modal.setAttribute('aria-hidden', 'true');
+    if (modal) modal.classList.remove('open');
   }
 
   // --- INITIALIZATION ---
   document.addEventListener('DOMContentLoaded', () => {
-    // Set initial language
     setLanguage(currentLang);
 
-    // Initial section from Hash or default
     const initialHash = window.location.hash.replace(/^#/, '');
     if (initialHash && document.getElementById(`section-${initialHash}`)) {
       switchSection(initialHash, false);
@@ -564,26 +502,45 @@
       switchSection('inicio', false);
     }
 
-    // Dropdown button listener
-    const menuBtn = document.getElementById('section-menu-btn');
-    if (menuBtn) {
-      menuBtn.addEventListener('click', (e) => {
+    // Desktop Dropdown Trigger
+    const desktopTrigger = document.getElementById('desktop-dropdown-trigger');
+    if (desktopTrigger) {
+      desktopTrigger.addEventListener('click', (e) => {
         e.stopPropagation();
-        toggleDropdown();
+        toggleDesktopPopover();
       });
     }
 
-    // Click outside to close dropdown
+    // Close popover when clicking outside
     document.addEventListener('click', (e) => {
-      const menu = document.getElementById('section-dropdown-menu');
-      const btn = document.getElementById('section-menu-btn');
-      if (menu && !menu.contains(e.target) && btn && !btn.contains(e.target)) {
-        closeDropdown();
+      const popover = document.getElementById('desktop-dropdown-popover');
+      const trigger = document.getElementById('desktop-dropdown-trigger');
+      if (popover && !popover.contains(e.target) && trigger && !trigger.contains(e.target)) {
+        closeDesktopPopover();
       }
     });
 
-    // Dropdown items click listeners
-    document.querySelectorAll('.dropdown-item').forEach((item) => {
+    // Mobile Drawer Toggle
+    const mobileMenuBtn = document.getElementById('btn-mobile-menu-toggle');
+    if (mobileMenuBtn) {
+      mobileMenuBtn.addEventListener('click', openMobileDrawer);
+    }
+
+    // Close Drawer Buttons
+    const closeDrawerBtn = document.getElementById('btn-close-drawer');
+    if (closeDrawerBtn) {
+      closeDrawerBtn.addEventListener('click', closeMobileDrawer);
+    }
+
+    const mobileDrawerOverlay = document.getElementById('mobile-nav-drawer');
+    if (mobileDrawerOverlay) {
+      mobileDrawerOverlay.addEventListener('click', (e) => {
+        if (e.target === mobileDrawerOverlay) closeMobileDrawer();
+      });
+    }
+
+    // Navigation item click bindings
+    document.querySelectorAll('[data-target-section]').forEach((item) => {
       item.addEventListener('click', (e) => {
         e.preventDefault();
         const sec = item.getAttribute('data-target-section');
@@ -591,20 +548,10 @@
       });
     });
 
-    // Nav pill items click listeners
-    document.querySelectorAll('.nav-pill').forEach((pill) => {
-      pill.addEventListener('click', (e) => {
-        e.preventDefault();
-        const sec = pill.getAttribute('data-target-section');
-        switchSection(sec);
-      });
-    });
-
     // Language buttons
     document.querySelectorAll('.lang-btn').forEach((b) => {
       b.addEventListener('click', () => {
-        const lang = b.getAttribute('data-lang');
-        setLanguage(lang);
+        setLanguage(b.getAttribute('data-lang'));
       });
     });
 
@@ -627,20 +574,23 @@
     // Open menu again buttons
     document.querySelectorAll('.btn-open-menu-again').forEach((btn) => {
       btn.addEventListener('click', () => {
-        toggleDropdown();
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+        if (window.innerWidth < 980) {
+          openMobileDrawer();
+        } else {
+          toggleDesktopPopover();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
       });
     });
 
-    // Venue city tabs
+    // City venue tabs
     document.querySelectorAll('.city-tab-btn').forEach((btn) => {
       btn.addEventListener('click', () => {
-        const vk = btn.getAttribute('data-venue');
-        selectVenue(vk);
+        selectVenue(btn.getAttribute('data-venue'));
       });
     });
 
-    // Past dates accordion toggle
+    // Past dates accordion
     const pastBtn = document.getElementById('past-dates-toggle');
     const pastWrap = document.getElementById('past-dates-wrapper');
     if (pastBtn && pastWrap) {
@@ -655,16 +605,13 @@
         const card = btn.closest('.faq-item-card');
         if (card) {
           const isOpen = card.classList.contains('open');
-          // Close other cards for clean accordion feel
           document.querySelectorAll('.faq-item-card').forEach((c) => c.classList.remove('open'));
-          if (!isOpen) {
-            card.classList.add('open');
-          }
+          if (!isOpen) card.classList.add('open');
         }
       });
     });
 
-    // Size Selector pills in MADE MOBB merch cards
+    // Size Selector pills
     document.querySelectorAll('.size-pill-btn').forEach((pill) => {
       pill.addEventListener('click', () => {
         const row = pill.closest('.size-pills-row');
@@ -675,53 +622,53 @@
       });
     });
 
-    // Calendar (.ICS) click delegation
+    // Calendar (.ICS) download
     document.addEventListener('click', (e) => {
       const icsBtn = e.target.closest('[data-download-ics]');
       if (icsBtn) {
         e.preventDefault();
-        const evId = icsBtn.getAttribute('data-download-ics');
-        downloadIcs(evId);
+        downloadIcs(icsBtn.getAttribute('data-download-ics'));
       }
     });
 
-    // Lightbox triggers for photos
+    // Lightbox
     document.querySelectorAll('[data-lightbox-src]').forEach((el) => {
       el.addEventListener('click', (e) => {
         e.preventDefault();
-        const src = el.getAttribute('data-lightbox-src');
-        const caption = el.getAttribute('data-lightbox-caption');
-        openLightbox(src, caption);
+        openLightbox(el.getAttribute('data-lightbox-src'), el.getAttribute('data-lightbox-caption'));
       });
     });
 
-    // Lightbox close
-    const closeBtn = document.getElementById('lightbox-close-btn');
-    const modal = document.getElementById('photo-lightbox');
-    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-    if (modal) {
-      modal.addEventListener('click', (e) => {
-        if (e.target === modal) closeLightbox();
+    const closeLightboxBtn = document.getElementById('lightbox-close-btn');
+    if (closeLightboxBtn) closeLightboxBtn.addEventListener('click', closeLightbox);
+
+    const lightboxModal = document.getElementById('photo-lightbox');
+    if (lightboxModal) {
+      lightboxModal.addEventListener('click', (e) => {
+        if (e.target === lightboxModal) closeLightbox();
       });
     }
+
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'Escape') {
+        closeLightbox();
+        closeMobileDrawer();
+        closeDesktopPopover();
+      }
     });
 
-    // Start Countdown
     initCountdown();
-
-    // Initial venue notes render
     selectVenue('miami');
   });
 
-  // Expose useful handlers globally
   window.AJApp = {
     switchSection,
     setLanguage,
     selectVenue,
     downloadIcs,
     openLightbox,
-    closeLightbox
+    closeLightbox,
+    openMobileDrawer,
+    closeMobileDrawer
   };
 })();

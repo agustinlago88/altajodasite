@@ -13,16 +13,16 @@
   <meta property="og:site_name" content="Alta Joda Fest">
   <meta property="og:title" content="Alta Joda Fest | Fiesta Argentina — Cumbia, Perreo y Fernet">
   <meta property="og:description" content="La fiesta argentina que recorre Estados Unidos. Próxima fecha: Sábado 3 de Octubre en ZeyZey Miami. Entradas desde $25.">
-  <meta property="og:image" content="og-image.png">
+  <meta property="og:image" content="assets/instagram-avatar.jpg">
   <meta property="og:url" content="https://altajodafest.com/">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@altajodafest">
   <meta name="twitter:title" content="Alta Joda Fest | Fiesta Argentina">
   <meta name="twitter:description" content="Cumbia, cuarteto, perreo y Fernet con Dustin Luke. Sacá tus entradas.">
-  <meta name="twitter:image" content="og-image.png">
+  <meta name="twitter:image" content="assets/instagram-avatar.jpg">
 
-  <!-- Favicon SVG -->
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2375AADB'/%3E%3Ctext x='32' y='45' font-family='Impact,sans-serif' font-size='36' text-anchor='middle' fill='%23FDF6EC'%3EAJ%3C/text%3E%3C/svg%3E">
+  <!-- Favicon: Official Instagram Logo -->
+  <link rel="icon" href="assets/instagram-avatar.jpg">
 
   <!-- Google Fonts Preconnect -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,6 +44,7 @@
         "email": "altajodafest@gmail.com",
         "description": "La fiesta argentina itinerante de Estados Unidos. Cumbia, cuarteto, RKT, reggaetón y Fernet con coca.",
         "url": "https://altajodafest.com/",
+        "logo": "https://altajodafest.com/assets/instagram-avatar.jpg",
         "sameAs": [
           "https://www.instagram.com/altajodafest",
           "https://www.tiktok.com/@altajodafest",
@@ -86,135 +87,177 @@
   <!-- Subtle noise overlay -->
   <div class="bg-noise" aria-hidden="true"></div>
 
-  <!-- SITE HEADER WITH SECTION DROPDOWN MENU -->
+  <!-- SITE HEADER WITH OFFICIAL LOGO & CLEAN NAV -->
   <header class="site-header" role="banner">
     <div class="header-container">
       
-      <!-- Brand Logo -->
-      <a href="#inicio" class="brand-group" onclick="AJApp.switchSection('inicio'); return false;">
-        <span class="brand-badge-flag" aria-hidden="true">
-          <span></span><span></span><span></span>
-        </span>
-        <span class="brand-logo-text">Alta Joda <span>Fest</span></span>
+      <!-- Brand Logo: Official Instagram Profile Photo + Text -->
+      <a href="#inicio" class="brand-group" onclick="AJApp.switchSection('inicio'); return false;" aria-label="Alta Joda Fest - Inicio">
+        <img src="assets/instagram-avatar.jpg" alt="Logo Oficial Alta Joda Fest" class="brand-official-logo-img">
+        <div class="brand-text-block">
+          <span class="brand-logo-text">Alta Joda <span>Fest</span></span>
+          <span class="brand-sub-badge">Official Tour 🇦🇷</span>
+        </div>
       </a>
 
-      <!-- Quick Navigation Pills (Desktop) -->
-      <nav class="quick-pills-bar" aria-label="Navegación rápida de secciones">
-        <a href="#inicio" class="nav-pill active" data-target-section="inicio" data-i18n="inicio">Inicio</a>
-        <a href="#fechas" class="nav-pill" data-target-section="fechas" data-i18n="fechas">Próximas Fechas</a>
-        <a href="#remeras" class="nav-pill" data-target-section="remeras" data-i18n="remeras">Remeras MADE MOBB</a>
-        <a href="#fotos" class="nav-pill" data-target-section="fotos" data-i18n="fotos">Fotos & IG</a>
-        <a href="#entradas" class="nav-pill" data-target-section="entradas" data-i18n="entradas">Entradas</a>
-        <a href="#locacion" class="nav-pill" data-target-section="locacion" data-i18n="locacion">Dónde es</a>
-        <a href="#faq" class="nav-pill" data-target-section="faq" data-i18n="faq">FAQ</a>
-        <a href="#contacto" class="nav-pill" data-target-section="contacto" data-i18n="contacto">Contacto</a>
+      <!-- Desktop Nav Links -->
+      <nav class="header-nav-desktop" aria-label="Navegación principal">
+        <a href="#inicio" class="nav-link-btn active" data-target-section="inicio" data-i18n="inicio">Inicio</a>
+        <a href="#fechas" class="nav-link-btn" data-target-section="fechas" data-i18n="fechas">Próximas Fechas</a>
+        <a href="#remeras" class="nav-link-btn" data-target-section="remeras" data-i18n="remeras">Remeras MADE MOBB</a>
+        <a href="#fotos" class="nav-link-btn" data-target-section="fotos" data-i18n="fotos">Fotos & IG</a>
+        <a href="#entradas" class="nav-link-btn" data-target-section="entradas" data-i18n="entradas">Entradas</a>
+        <a href="#locacion" class="nav-link-btn" data-target-section="locacion" data-i18n="locacion">Dónde es</a>
+        <a href="#faq" class="nav-link-btn" data-target-section="faq" data-i18n="faq">FAQ</a>
+        <a href="#contacto" class="nav-link-btn" data-target-section="contacto" data-i18n="contacto">Contacto</a>
       </nav>
 
-      <!-- Dropdown Navigation Trigger & Dropdown Menu -->
-      <div class="dropdown-nav-wrapper">
-        <button type="button" id="section-menu-btn" class="section-menu-btn" aria-haspopup="true" aria-expanded="false" aria-label="Abrir menú de secciones">
-          <span id="current-section-label">🏠 Inicio</span>
-          <span class="dropdown-arrow" aria-hidden="true">▾</span>
-        </button>
-
-        <!-- Dropdown Menu items -->
-        <div id="section-dropdown-menu" class="section-dropdown-menu" role="menu">
-          <span class="dropdown-header-tag" data-i18n="selectSection">⚡ Seleccionar Sección</span>
-          
-          <a href="#inicio" class="dropdown-item active" data-target-section="inicio" role="menuitem">
-            <span class="dropdown-item-icon">🏠</span>
-            <div class="dropdown-item-text">
-              <span class="dropdown-item-title">Inicio</span>
-              <span class="dropdown-item-desc">Fotos, título y próxima fecha</span>
-            </div>
-          </a>
-
-          <a href="#fechas" class="dropdown-item" data-target-section="fechas" role="menuitem">
-            <span class="dropdown-item-icon">📅</span>
-            <div class="dropdown-item-text">
-              <span class="dropdown-item-title">Próximas Fechas</span>
-              <span class="dropdown-item-desc">Miami, Dallas, DC, Kansas City</span>
-            </div>
-          </a>
-
-          <a href="#remeras" class="dropdown-item" data-target-section="remeras" role="menuitem">
-            <span class="dropdown-item-icon">👕</span>
-            <div class="dropdown-item-text">
-              <span class="dropdown-item-title">Remeras MADE MOBB</span>
-              <span class="dropdown-item-desc">Cápsula oficial de streetwear</span>
-            </div>
-          </a>
-
-          <a href="#fotos" class="dropdown-item" data-target-section="fotos" role="menuitem">
-            <span class="dropdown-item-icon">📸</span>
-            <div class="dropdown-item-text">
-              <span class="dropdown-item-title">Fotos & Instagram</span>
-              <span class="dropdown-item-desc">Feed directo @altajodafest</span>
-            </div>
-          </a>
-
-          <a href="#entradas" class="dropdown-item" data-target-section="entradas" role="menuitem">
-            <span class="dropdown-item-icon">🎟️</span>
-            <div class="dropdown-item-text">
-              <span class="dropdown-item-title">Precios & Tiers</span>
-              <span class="dropdown-item-desc">Preventa, Early Bird y Puerta</span>
-            </div>
-          </a>
-
-          <a href="#locacion" class="dropdown-item" data-target-section="locacion" role="menuitem">
-            <span class="dropdown-item-icon">📍</span>
-            <div class="dropdown-item-text">
-              <span class="dropdown-item-title">Dónde es (Venues)</span>
-              <span class="dropdown-item-desc">Mapas, direcciones y tips</span>
-            </div>
-          </a>
-
-          <a href="#faq" class="dropdown-item" data-target-section="faq" role="menuitem">
-            <span class="dropdown-item-icon">❓</span>
-            <div class="dropdown-item-text">
-              <span class="dropdown-item-title">Preguntas Frecuentes</span>
-              <span class="dropdown-item-desc">Edad 21+, lluvia, dress code</span>
-            </div>
-          </a>
-
-          <a href="#contacto" class="dropdown-item" data-target-section="contacto" role="menuitem">
-            <span class="dropdown-item-icon">📬</span>
-            <div class="dropdown-item-text">
-              <span class="dropdown-item-title">Contacto & Redes</span>
-              <span class="dropdown-item-desc">Instagram, WhatsApp VIP y más</span>
-            </div>
-          </a>
-        </div>
-      </div>
-
-      <!-- Header Actions: Lang switch + Ticket shortcut -->
+      <!-- Header Actions: Dropdown, Lang switch, Tickets, Mobile Menu Button -->
       <div class="header-actions">
+        
+        <!-- Desktop Dropdown Popover Trigger -->
+        <div class="dropdown-wrapper">
+          <button type="button" id="desktop-dropdown-trigger" class="btn-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="menuLabel">Secciones ▾</span>
+          </button>
+          
+          <div id="desktop-dropdown-popover" class="desktop-dropdown-popover" role="menu">
+            <a href="#inicio" class="popover-item active" data-target-section="inicio" role="menuitem">
+              <span class="popover-item-icon">🏠</span>
+              <span>Inicio (Fotos & Próxima)</span>
+            </a>
+            <a href="#fechas" class="popover-item" data-target-section="fechas" role="menuitem">
+              <span class="popover-item-icon">📅</span>
+              <span>Próximas Fechas & Tour</span>
+            </a>
+            <a href="#remeras" class="popover-item" data-target-section="remeras" role="menuitem">
+              <span class="popover-item-icon">👕</span>
+              <span>Remeras MADE MOBB</span>
+            </a>
+            <a href="#fotos" class="popover-item" data-target-section="fotos" role="menuitem">
+              <span class="popover-item-icon">📸</span>
+              <span>Fotos & Instagram Oficial</span>
+            </a>
+            <a href="#entradas" class="popover-item" data-target-section="entradas" role="menuitem">
+              <span class="popover-item-icon">🎟️</span>
+              <span>Precios & Entradas</span>
+            </a>
+            <a href="#locacion" class="popover-item" data-target-section="locacion" role="menuitem">
+              <span class="popover-item-icon">📍</span>
+              <span>Dónde es (Venues & Mapas)</span>
+            </a>
+            <a href="#faq" class="popover-item" data-target-section="faq" role="menuitem">
+              <span class="popover-item-icon">❓</span>
+              <span>Preguntas Frecuentes</span>
+            </a>
+            <a href="#contacto" class="popover-item" data-target-section="contacto" role="menuitem">
+              <span class="popover-item-icon">📬</span>
+              <span>Contacto & WhatsApp VIP</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- Language Switch -->
         <div class="lang-switch" role="group" aria-label="Selector de idioma">
           <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
           <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">EN</button>
         </div>
 
+        <!-- Header Tickets Button (Desktop) -->
         <a href="https://posh.vip/e/alta-joda-fest-miami" target="_blank" rel="noopener" class="btn-header-tickets">
           <span aria-hidden="true">🎟️</span>
           <span data-i18n="getTickets">Entradas</span>
         </a>
+
+        <!-- Mobile Menu Hamburger Button -->
+        <button type="button" id="btn-mobile-menu-toggle" class="btn-mobile-menu-toggle" aria-label="Abrir Menú de Secciones">
+          <span class="hamburger-bars" aria-hidden="true">☰</span>
+          <span>Menú</span>
+        </button>
+
       </div>
 
     </div>
   </header>
 
-  <!-- MAIN WRAPPER (SECTIONS) -->
+  <!-- MOBILE NAVIGATION DRAWER (CLEAN TOUCH SHEET) -->
+  <div id="mobile-nav-drawer" class="mobile-nav-drawer" role="dialog" aria-modal="true" aria-label="Menú de Secciones">
+    <div class="mobile-drawer-sheet">
+      <div class="mobile-drawer-header">
+        <h3 class="mobile-drawer-title">Menú de Secciones</h3>
+        <button type="button" id="btn-close-drawer" class="btn-close-drawer" aria-label="Cerrar menú">✕</button>
+      </div>
+
+      <ul class="mobile-drawer-list">
+        <li>
+          <a href="#inicio" class="mobile-drawer-item active" data-target-section="inicio">
+            <span class="mobile-drawer-icon">🏠</span>
+            <span>Inicio (Fotos & Próxima Fecha)</span>
+          </a>
+        </li>
+        <li>
+          <a href="#fechas" class="mobile-drawer-item" data-target-section="fechas">
+            <span class="mobile-drawer-icon">📅</span>
+            <span>Próximas Fechas & Tour 2026</span>
+          </a>
+        </li>
+        <li>
+          <a href="#remeras" class="mobile-drawer-item" data-target-section="remeras">
+            <span class="mobile-drawer-icon">👕</span>
+            <span>Remeras MADE MOBB (Colaboración)</span>
+          </a>
+        </li>
+        <li>
+          <a href="#fotos" class="mobile-drawer-item" data-target-section="fotos">
+            <span class="mobile-drawer-icon">📸</span>
+            <span>Fotos & Feed de Instagram</span>
+          </a>
+        </li>
+        <li>
+          <a href="#entradas" class="mobile-drawer-item" data-target-section="entradas">
+            <span class="mobile-drawer-icon">🎟️</span>
+            <span>Precios & Tiers de Entradas</span>
+          </a>
+        </li>
+        <li>
+          <a href="#locacion" class="mobile-drawer-item" data-target-section="locacion">
+            <span class="mobile-drawer-icon">📍</span>
+            <span>Dónde es (ZeyZey, Dallas, DC, KC)</span>
+          </a>
+        </li>
+        <li>
+          <a href="#faq" class="mobile-drawer-item" data-target-section="faq">
+            <span class="mobile-drawer-icon">❓</span>
+            <span>Preguntas Frecuentes (FAQ)</span>
+          </a>
+        </li>
+        <li>
+          <a href="#contacto" class="mobile-drawer-item" data-target-section="contacto">
+            <span class="mobile-drawer-icon">📬</span>
+            <span>Contacto & WhatsApp VIP</span>
+          </a>
+        </li>
+      </ul>
+
+      <a href="https://posh.vip/e/alta-joda-fest-miami" target="_blank" rel="noopener" class="mobile-drawer-tickets-btn">
+        <span aria-hidden="true">🎟️</span>
+        <span>Comprar Entradas (Miami Oct 3)</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- MAIN SECTIONS -->
   <main id="main-content">
 
     <!-- ==============================================
-         1. SECCIÓN INICIO (HERO + FOTOS + PRÓXIMO EVENTO)
+         1. SECCIÓN INICIO (HERO + OFFICIAL LOGO + FOTOS + PRÓXIMO EVENTO)
          ============================================== -->
     <section id="section-inicio" class="content-section active" aria-labelledby="hero-title">
       <div class="hero-glow-bg" aria-hidden="true"></div>
       
       <div class="hero-layout-grid">
         
-        <!-- Left: Badges, Title, Story, and Next Event Card -->
+        <!-- Left Hero: Badges, Official Instagram Logo Graphic, Title & Next Event Card -->
         <div class="hero-content">
           <div class="hero-badge-container">
             <div class="hero-tag-arg">
@@ -227,15 +270,21 @@
             </div>
           </div>
 
-          <h1 id="hero-title" class="hero-main-title">
-            Alta<br>Joda<br><span class="word-fest">Fest</span>
-          </h1>
+          <!-- OFFICIAL INSTAGRAM LOGO (User explicit requirement) -->
+          <div class="hero-official-logo-brand-block">
+            <img src="assets/instagram-avatar.jpg" alt="Logo Oficial Alta Joda Fest de Instagram" class="hero-instagram-avatar-logo">
+            <div class="hero-logo-titles">
+              <h1 id="hero-title" class="hero-main-title">
+                Alta<br>Joda<br><span class="word-fest">Fest</span>
+              </h1>
+            </div>
+          </div>
 
           <p class="hero-tagline">
             <span data-i18n="cumbiaPerreo">Cumbia, Perreo y Fernet</span> — <span>since 2022</span>
           </p>
 
-          <!-- Featured Next Event Card (Right in Inicio) -->
+          <!-- Featured Next Event Card -->
           <div class="hero-next-event-card">
             <div class="next-event-badge">
               <span aria-hidden="true">⚡</span>
@@ -284,7 +333,7 @@
           </div>
         </div>
 
-        <!-- Right: FOTOS EN EL INICIO (Live Photo Showcase Cluster) -->
+        <!-- Right Hero: FOTOS EN EL INICIO (Live Photo Showcase) -->
         <div class="hero-photos-showcase">
           <div class="photos-showcase-header">
             <span class="photos-showcase-tag" data-i18n="photosHeroTag">📸 En Vivo · Galería de la Fiesta</span>
@@ -293,10 +342,9 @@
             </a>
           </div>
 
-          <!-- Collage of 4 interactive party photos -->
+          <!-- 2x2 Collage Grid of interactive party photos -->
           <div class="hero-photos-collage">
             
-            <!-- Photo 1: Crowd -->
             <div class="hero-photo-card card-1" data-lightbox-src="assets/photos/fiesta-crowd.jpg" data-lightbox-caption="Pista explotada en ZeyZey Miami cantando cumbia y agitando banderas 🇦🇷">
               <div class="photo-img-wrap">
                 <img src="assets/photos/fiesta-crowd.jpg" alt="Pista de baile de Alta Joda Fest con la multitud cantando" loading="eager">
@@ -307,8 +355,7 @@
               </div>
             </div>
 
-            <!-- Photo 2: DJ & Stage -->
-            <div class="hero-photo-card card-2" data-lightbox-src="assets/photos/fiesta-dj.jpg" data-lightbox-caption="Dustin Luke y DJ en vivo bajando cumbia santafesina, cuarteto y RKT 🔥">
+            <div class="hero-photo-card card-2" data-lightbox-src="assets/photos/fiesta-dj.jpg" data-lightbox-caption="Dustin Luke y DJ en vivo bajando cumbia villera, cuarteto y RKT 🔥">
               <div class="photo-img-wrap">
                 <img src="assets/photos/fiesta-dj.jpg" alt="DJ y escenario en vivo de Alta Joda Fest" loading="eager">
               </div>
@@ -318,7 +365,6 @@
               </div>
             </div>
 
-            <!-- Photo 3: Fernet con coca -->
             <div class="hero-photo-card card-3" data-lightbox-src="assets/photos/fiesta-fernet.jpg" data-lightbox-caption="Jarra de Fernet con Coca 70/30 bien fría, clásica de la fiesta 🥃">
               <div class="photo-img-wrap">
                 <img src="assets/photos/fiesta-fernet.jpg" alt="Brindis con Fernet con Coca en Alta Joda Fest" loading="lazy">
@@ -329,7 +375,6 @@
               </div>
             </div>
 
-            <!-- Photo 4: Perreo & Vibe -->
             <div class="hero-photo-card card-4" data-lightbox-src="assets/photos/fiesta-perreo.jpg" data-lightbox-caption="Bailando hasta que prenden las luces, sin dress code y con pura energía 🇦🇷✨">
               <div class="photo-img-wrap">
                 <img src="assets/photos/fiesta-perreo.jpg" alt="Gente bailando en Alta Joda Fest" loading="lazy">
@@ -366,10 +411,9 @@
           </p>
         </div>
 
-        <!-- Cards grid of upcoming tour dates -->
         <div class="dates-grid">
           
-          <!-- Event 1: Miami (Featured) -->
+          <!-- Event 1: Miami -->
           <article class="date-event-card featured-card">
             <div class="event-card-header">
               <h3 class="event-city-title">Miami</h3>
@@ -382,7 +426,7 @@
             <ul class="event-tags-list">
               <li class="event-tag-item">21+ con ID</li>
               <li class="event-tag-item">Al aire libre</li>
-              <li class="event-tag-item">Estacionamiento gratis</li>
+              <li class="event-tag-item">Estacionamiento en la zona</li>
             </ul>
 
             <div class="event-pricing-row">
@@ -413,7 +457,7 @@
             <ul class="event-tags-list">
               <li class="event-tag-item">21+ con ID</li>
               <li class="event-tag-item">Indoor + Patio</li>
-              <li class="event-tag-item">Estacionamiento en la zona</li>
+              <li class="event-tag-item">Lotes de Deep Ellum</li>
             </ul>
 
             <div class="event-pricing-row">
@@ -443,7 +487,7 @@
 
             <ul class="event-tags-list">
               <li class="event-tag-item">21+ con ID</li>
-              <li class="event-tag-item">Cocina latina abierta</li>
+              <li class="event-tag-item">Cocina latina</li>
               <li class="event-tag-item">Cerca del Metro</li>
             </ul>
 
@@ -474,7 +518,7 @@
 
             <ul class="event-tags-list">
               <li class="event-tag-item">21+ con ID</li>
-              <li class="event-tag-item">Estacionamiento gratis</li>
+              <li class="event-tag-item">Estacionamiento propio</li>
               <li class="event-tag-item">Accesible</li>
             </ul>
 
@@ -529,7 +573,7 @@
         <!-- Section Navigation Footer -->
         <div class="section-next-footer">
           <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú de Secciones</span>
+            <span>⚡ Explorar Menú</span>
           </button>
           <button type="button" class="btn-next-section" data-next-section="remeras">
             <span>Ver Remeras MADE MOBB ➔</span>
@@ -550,12 +594,11 @@
           <span class="section-kicker">👕 Colaboración Oficial · Streetwear</span>
           <h2 id="remeras-title" class="section-title">Cápsula Alta Joda × MADE MOBB</h2>
           <p class="section-subtitle">
-            Unión pesada entre la cultura de fiesta argentina y la marca streetwear de Kansas City <strong>MADE MOBB</strong>. 
+            Unión directa entre la cultura cumbiera argentina y la marca pesada de streetwear de Kansas City <strong>MADE MOBB</strong>. 
             Prendas de corte premium, serigrafía pesada y detalles con la celeste y blanca.
           </p>
         </div>
 
-        <!-- Collab Story Banner with direct link to full collection -->
         <div class="collab-story-banner">
           <div>
             <div class="collab-logos">
@@ -565,13 +608,13 @@
             </div>
             <p class="collab-desc">
               Diseñadas para bancar la noche: 100% algodón de alto gramaje con el icónico carpincho argentino, 
-              güiro de cumbia, jarra de Fernet y el toro mecánico de Kansas City. Stock limitado por lanzamiento.
+              güiro de cumbia, jarra de Fernet y el toro mecánico de Kansas City.
             </p>
           </div>
 
           <div class="collab-banner-actions">
             <a href="https://www.mademobb.com/collections/alta-joda-collaboration" target="_blank" rel="noopener" class="btn-visit-mademobb">
-              <span>Ver Colección Completa ↗</span>
+              <span>Ver Colección en MADE MOBB ↗</span>
             </a>
             <span class="collab-shipping-info">📦 Envíos directos a todo Estados Unidos</span>
           </div>
@@ -594,11 +637,10 @@
               </div>
 
               <p class="merch-details-text">
-                Color negro lavado estilo vintage. Ilustración en la espalda del carpincho con lentes de sol, 
+                Color negro lavado estilo vintage. Ilustración en la espalda del carpincho con lentes oscuros, 
                 gorra KC, camiseta argentina de fútbol y güiro de cumbia villera.
               </p>
 
-              <!-- Size selector pills -->
               <div class="merch-sizes-block">
                 <span class="sizes-label">Talles disponibles:</span>
                 <div class="size-pills-row">
@@ -635,7 +677,6 @@
                 con capa de bandera argentina y jarra viajera de Fernet con Coca ("AJF").
               </p>
 
-              <!-- Size selector pills -->
               <div class="merch-sizes-block">
                 <span class="sizes-label">Talles disponibles:</span>
                 <div class="size-pills-row">
@@ -656,10 +697,9 @@
 
         </div>
 
-        <!-- Section Navigation Footer -->
         <div class="section-next-footer">
           <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú de Secciones</span>
+            <span>⚡ Explorar Menú</span>
           </button>
           <button type="button" class="btn-next-section" data-next-section="fotos">
             <span>Ver Fotos & Feed de Instagram ➔</span>
@@ -684,10 +724,10 @@
           </p>
         </div>
 
-        <!-- Instagram Profile Banner Card -->
+        <!-- Instagram Profile Banner Card with Official Profile Photo -->
         <div class="instagram-profile-card">
           <div class="ig-profile-info">
-            <div class="ig-avatar-badge" aria-hidden="true">AJ</div>
+            <img src="assets/instagram-avatar.jpg" alt="Foto de Perfil Oficial de Instagram @altajodafest" class="ig-official-avatar-img">
             <div class="ig-names">
               <div class="ig-handle-verified">
                 <span>@altajodafest</span>
@@ -706,44 +746,36 @@
 
         <!-- Instagram Stories Highlights Row -->
         <div class="ig-stories-strip" aria-label="Historias destacadas de Instagram">
-          
           <a href="https://www.instagram.com/altajodafest/" target="_blank" rel="noopener" class="ig-story-circle">
             <div class="story-ring"><div class="story-inner">🌴</div></div>
             <span class="story-label">Miami</span>
           </a>
-
           <a href="https://www.instagram.com/altajodafest/" target="_blank" rel="noopener" class="ig-story-circle">
             <div class="story-ring"><div class="story-inner">🤠</div></div>
             <span class="story-label">Dallas</span>
           </a>
-
           <a href="https://www.instagram.com/altajodafest/" target="_blank" rel="noopener" class="ig-story-circle">
             <div class="story-ring"><div class="story-inner">🏛️</div></div>
             <span class="story-label">DC</span>
           </a>
-
           <a href="https://www.instagram.com/altajodafest/" target="_blank" rel="noopener" class="ig-story-circle">
             <div class="story-ring"><div class="story-inner">🧢</div></div>
             <span class="story-label">Kansas</span>
           </a>
-
           <a href="https://www.instagram.com/altajodafest/" target="_blank" rel="noopener" class="ig-story-circle">
             <div class="story-ring"><div class="story-inner">🥃</div></div>
             <span class="story-label">Fernet</span>
           </a>
-
           <a href="https://www.instagram.com/altajodafest/" target="_blank" rel="noopener" class="ig-story-circle">
             <div class="story-ring"><div class="story-inner">🏆</div></div>
             <span class="story-label">Mundial</span>
           </a>
-
         </div>
 
-        <!-- Interactive Instagram Feed Grid (Directly linked to feed & posts) -->
+        <!-- Interactive Instagram Feed Grid -->
         <div class="instagram-feed-grid">
           
-          <!-- Post 1: Crowd dancing -->
-          <div class="ig-feed-post-card" data-lightbox-src="assets/photos/fiesta-crowd.jpg" data-lightbox-caption="Little River se convirtió en la cancha de Boca. Gracias a las más de mil personas que coparon ZeyZey! Nos vemos en octubre 🇦🇷🔥">
+          <div class="ig-feed-post-card" data-lightbox-src="assets/photos/fiesta-crowd.jpg" data-lightbox-caption="Little River fue una caldera. Gracias a las más de mil personas que coparon ZeyZey! Nos vemos en octubre 🇦🇷🔥">
             <img src="assets/photos/fiesta-crowd.jpg" alt="Pista de baile llena en Miami" loading="lazy">
             <div class="ig-post-overlay">
               <span class="ig-post-type-icon">▶ REEL</span>
@@ -753,13 +785,12 @@
                   <span>💬 234</span>
                 </div>
                 <p class="ig-caption-text">
-                  Little River fue una caldera. Nadie se quedó quieto. #AltaJodaFest #Miami
+                  Little River fue una fiesta total. Nadie se quedó quieto. #AltaJodaFest #Miami
                 </p>
               </div>
             </div>
           </div>
 
-          <!-- Post 2: DJ Set -->
           <div class="ig-feed-post-card" data-lightbox-src="assets/photos/fiesta-dj.jpg" data-lightbox-caption="Cuando suena Damas Gratis y Los Palmeras en el medio de Estados Unidos... la energía no se compara con nada!">
             <img src="assets/photos/fiesta-dj.jpg" alt="DJ y Dustin Luke en escenario" loading="lazy">
             <div class="ig-post-overlay">
@@ -776,7 +807,6 @@
             </div>
           </div>
 
-          <!-- Post 3: Fernet con coca -->
           <div class="ig-feed-post-card" data-lightbox-src="assets/photos/fiesta-fernet.jpg" data-lightbox-caption="El verdadero viajero de Fernet con Coca cortado en botella. 70/30 con hielo hasta arriba 🥃🇦🇷">
             <img src="assets/photos/fiesta-fernet.jpg" alt="Fernet con Coca en jarra" loading="lazy">
             <div class="ig-post-overlay">
@@ -793,7 +823,6 @@
             </div>
           </div>
 
-          <!-- Post 4: Perreo & lights -->
           <div class="ig-feed-post-card" data-lightbox-src="assets/photos/fiesta-lights.jpg" data-lightbox-caption="Las luces estroboscópicas y el RKT sonando a las 2 AM. El ambiente no para hasta que cierran el boliche.">
             <img src="assets/photos/fiesta-lights.jpg" alt="Pista iluminada con luces de fiesta" loading="lazy">
             <div class="ig-post-overlay">
@@ -810,7 +839,6 @@
             </div>
           </div>
 
-          <!-- Post 5: Dancing couple -->
           <div class="ig-feed-post-card" data-lightbox-src="assets/photos/fiesta-dancing.jpg" data-lightbox-caption="Cuarteto cordobés para mover el esqueleto. Cero careteo, cero dress code, pura fiesta argentina.">
             <img src="assets/photos/fiesta-dancing.jpg" alt="Gente bailando cumbia y cuarteto" loading="lazy">
             <div class="ig-post-overlay">
@@ -827,7 +855,6 @@
             </div>
           </div>
 
-          <!-- Post 6: Group cheering -->
           <div class="ig-feed-post-card" data-lightbox-src="assets/photos/fiesta-perreo.jpg" data-lightbox-caption="La banda argentina copando Miami. Más puentes, menos muros. Esto es Alta Joda Fest.">
             <img src="assets/photos/fiesta-perreo.jpg" alt="Grupo de amigos con bandera argentina" loading="lazy">
             <div class="ig-post-overlay">
@@ -846,10 +873,9 @@
 
         </div>
 
-        <!-- Section Navigation Footer -->
         <div class="section-next-footer">
           <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú de Secciones</span>
+            <span>⚡ Explorar Menú</span>
           </button>
           <button type="button" class="btn-next-section" data-next-section="entradas">
             <span>Ver Precios & Entradas ➔</span>
@@ -874,11 +900,9 @@
           </p>
         </div>
 
-        <!-- Tiers Bar Graphic -->
         <div class="tiers-bars-container">
-          
           <div class="tier-column-item">
-            <div class="tier-bar-visual" style="height: 80px; background: #75AADB;">
+            <div class="tier-bar-visual" style="height: 70px; background: #75AADB;">
               <span class="tier-price-display">$25</span>
             </div>
             <div class="tier-meta">
@@ -888,7 +912,7 @@
           </div>
 
           <div class="tier-column-item">
-            <div class="tier-bar-visual" style="height: 110px; background: #7FC9A0;">
+            <div class="tier-bar-visual" style="height: 95px; background: #7FC9A0;">
               <span class="tier-price-display">$30</span>
             </div>
             <div class="tier-meta">
@@ -898,27 +922,27 @@
           </div>
 
           <div class="tier-column-item">
-            <div class="tier-bar-visual" style="height: 140px; background: #F2C230;">
+            <div class="tier-bar-visual" style="height: 125px; background: #F2C230;">
               <span class="tier-price-display">$35</span>
             </div>
             <div class="tier-meta">
-              <span class="tier-name-title">General Admission 1</span>
+              <span class="tier-name-title">GA Tier 1</span>
               <span class="tier-status-text" style="color: #FFECA8;">A la venta 🔥</span>
             </div>
           </div>
 
           <div class="tier-column-item">
-            <div class="tier-bar-visual" style="height: 175px; background: #FF8A3D;">
+            <div class="tier-bar-visual" style="height: 155px; background: #FF8A3D;">
               <span class="tier-price-display">$40</span>
             </div>
             <div class="tier-meta">
-              <span class="tier-name-title">General Admission 2</span>
+              <span class="tier-name-title">GA Tier 2</span>
               <span class="tier-status-text">Próximo tramo</span>
             </div>
           </div>
 
           <div class="tier-column-item">
-            <div class="tier-bar-visual" style="height: 210px; background: #E8452B;">
+            <div class="tier-bar-visual" style="height: 190px; background: #E8452B;">
               <span class="tier-price-display">$50</span>
             </div>
             <div class="tier-meta">
@@ -926,10 +950,8 @@
               <span class="tier-status-text">Sujeto a capacidad</span>
             </div>
           </div>
-
         </div>
 
-        <!-- Spectrum indicator -->
         <div class="pricing-spectrum-row">
           <span>Ahora (Preventa)</span>
           <span class="spectrum-line" aria-hidden="true"></span>
@@ -938,16 +960,15 @@
 
         <div class="platforms-note-box">
           <p>
-            <strong>Información importante de ticketing:</strong> La venta corre a través de plataformas autorizadas 
+            <strong>Información de ticketing:</strong> La venta corre a través de plataformas autorizadas 
             (<strong>Posh.vip</strong> para Miami y KC, <strong>Eventbrite</strong> para Dallas, y <strong>Shotgun.live</strong> para Washington DC). 
-            No compres entradas a revendedores en redes sociales; si el QR ya fue escaneado no podrás ingresar.
+            No compres entradas a revendedores informales; si el QR ya fue usado te quedás afuera.
           </p>
         </div>
 
-        <!-- Section Navigation Footer -->
         <div class="section-next-footer">
           <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú de Secciones</span>
+            <span>⚡ Explorar Menú</span>
           </button>
           <button type="button" class="btn-next-section" data-next-section="locacion">
             <span>Ver Dónde es & Venues ➔</span>
@@ -972,7 +993,6 @@
           </p>
         </div>
 
-        <!-- City tabs -->
         <div class="city-tabs-row" role="tablist" aria-label="Seleccionar ciudad de la fiesta">
           <button type="button" class="city-tab-btn active" data-venue="miami" role="tab" aria-selected="true">Miami (ZeyZey)</button>
           <button type="button" class="city-tab-btn" data-venue="dallas" role="tab" aria-selected="false">Dallas (It'll Do)</button>
@@ -980,7 +1000,6 @@
           <button type="button" class="city-tab-btn" data-venue="kansas" role="tab" aria-selected="false">Kansas City (The Truman)</button>
         </div>
 
-        <!-- Venue Display Card with Map -->
         <div class="city-venue-display-card">
           <iframe id="venue-map-iframe" class="map-embed-frame" title="ZeyZey Miami Map" src="https://www.google.com/maps?q=ZeyZey,%20353%20NE%2061st%20St,%20Miami,%20FL%2033137&z=15&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
@@ -997,16 +1016,13 @@
               </a>
             </div>
 
-            <ul id="venue-notes-list" class="city-venue-notes-grid">
-              <!-- Dynamically populated via JS -->
-            </ul>
+            <ul id="venue-notes-list" class="city-venue-notes-grid"></ul>
           </div>
         </div>
 
-        <!-- Section Navigation Footer -->
         <div class="section-next-footer">
           <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú de Secciones</span>
+            <span>⚡ Explorar Menú</span>
           </button>
           <button type="button" class="btn-next-section" data-next-section="faq">
             <span>Ver Preguntas Frecuentes (FAQ) ➔</span>
@@ -1069,7 +1085,7 @@
               <span class="faq-toggle-icon" aria-hidden="true">+</span>
             </button>
             <div class="faq-answer-pane">
-              En Miami (ZeyZey), el lote público cruzando la 61 es gratuito. En Dallas hay lotes pagos sobre Elm St. En Kansas City, The Truman tiene estacionamiento propio gratuito. En Washington DC recomendamos llegar en Metro o Uber.
+              En Miami (ZeyZey), recomendamos llegar en Uber/Lyft o estacionar en los alrededores de Little River. En Dallas hay lotes pagos sobre Elm St. En Kansas City, The Truman tiene estacionamiento propio. En Washington DC recomendamos llegar en Metro.
             </div>
           </div>
 
@@ -1095,10 +1111,9 @@
 
         </div>
 
-        <!-- Section Navigation Footer -->
         <div class="section-next-footer">
           <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú de Secciones</span>
+            <span>⚡ Explorar Menú</span>
           </button>
           <button type="button" class="btn-next-section" data-next-section="contacto">
             <span>Ir a Contacto & Redes ➔</span>
@@ -1125,40 +1140,36 @@
 
         <div class="contact-grid-cards">
           
-          <!-- INSTAGRAM DESTACADO (Requerimiento explícito) -->
+          <!-- INSTAGRAM DESTACADO -->
           <a href="https://www.instagram.com/altajodafest/" target="_blank" rel="noopener" class="contact-highlight-card">
             <span class="platform-label">Instagram Oficial</span>
             <span class="platform-handle">@altajodafest</span>
             <p class="platform-desc">
               El canal principal donde anunciamos preventas, sorteos de Fernet, fotos de la fiesta y backstage con Dustin Luke. Seguinos.
             </p>
-            <span style="font-weight: 800; text-decoration: underline; margin-top: 10px;">Abrir perfil en Instagram ↗</span>
+            <span style="font-weight: 800; text-decoration: underline; margin-top: 8px;">Abrir perfil en Instagram ↗</span>
           </a>
 
           <!-- Quick Actions Column -->
           <div class="contact-quick-links-column">
             
-            <!-- WhatsApp VIP -->
             <a href="https://wa.me/17865550123?text=Hola!%20Quiero%20info%20de%20mesas%20VIP%20y%20entradas%20para%20Alta%20Joda%20Fest%20%F0%9F%87%A6%F0%9F%87%B7" target="_blank" rel="noopener" class="contact-action-box">
-              <span aria-hidden="true" style="font-size: 20px;">💬</span>
+              <span aria-hidden="true" style="font-size: 18px;">💬</span>
               <span>WhatsApp VIP · +1 (786) 555-0123</span>
             </a>
 
-            <!-- TikTok -->
             <a href="https://www.tiktok.com/@altajodafest" target="_blank" rel="noopener" class="contact-action-box">
-              <span aria-hidden="true" style="font-size: 20px;">🎵</span>
+              <span aria-hidden="true" style="font-size: 18px;">🎵</span>
               <span>TikTok · @altajodafest</span>
             </a>
 
-            <!-- Email -->
             <a href="mailto:altajodafest@gmail.com" class="contact-action-box">
-              <span aria-hidden="true" style="font-size: 20px;">✉️</span>
+              <span aria-hidden="true" style="font-size: 18px;">✉️</span>
               <span>Email · altajodafest@gmail.com</span>
             </a>
 
-            <!-- Typeform: Bring to my city -->
             <a href="https://form.typeform.com/to/altajoda" target="_blank" rel="noopener" class="contact-action-box box-yellow">
-              <span aria-hidden="true" style="font-size: 20px;">✍️</span>
+              <span aria-hidden="true" style="font-size: 18px;">✍️</span>
               <span>Quiero Alta Joda en mi ciudad</span>
             </a>
 
@@ -1166,7 +1177,7 @@
 
         </div>
 
-        <!-- Sponsors & Brand Partnerships Callout -->
+        <!-- Sponsors Callout -->
         <div class="sponsors-callout-card">
           <span class="sponsor-kicker">Marcas & Activaciones</span>
           <h3 class="sponsor-title">Llegá a la comunidad argentina más activa de EE.UU.</h3>
@@ -1178,10 +1189,9 @@
           </a>
         </div>
 
-        <!-- Section Navigation Footer -->
         <div class="section-next-footer">
           <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú de Secciones</span>
+            <span>⚡ Explorar Menú</span>
           </button>
           <button type="button" class="btn-next-section" data-next-section="inicio">
             <span>Volver al Inicio 🏠</span>
@@ -1193,7 +1203,7 @@
 
   </main>
 
-  <!-- STICKY MOBILE BOTTOM BAR (TICKETS SHORTCUT) -->
+  <!-- STICKY MOBILE BOTTOM BAR -->
   <div class="mobile-sticky-bottom-bar" role="complementary" aria-label="Acceso rápido a entradas">
     <div class="mobile-bar-info">
       <p class="mobile-bar-label">Próxima Fecha</p>
@@ -1207,7 +1217,7 @@
   <!-- FLOATING WHATSAPP BUTTON -->
   <a href="https://wa.me/17865550123?text=Hola!%20Quiero%20info%20de%20la%20pr%C3%B3xima%20Alta%20Joda%20Fest%20%F0%9F%87%A6%F0%9F%87%B7" target="_blank" rel="noopener" class="floating-whatsapp-btn" aria-label="Escribinos por WhatsApp">
     <span class="whatsapp-circle-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" width="22" height="22"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-1.6-.5-3.2-1.6-4.4-3.1-.9-1-1.5-2.2-1.5-3.2 0-.6.3-1.3.8-1.7.2-.2.4-.2.6-.2h.5c.2 0 .3.1.4.4l.6 1.4c.1.2 0 .4-.1.5l-.4.5c-.1.1-.1.3 0 .4.5.9 1.5 1.9 2.6 2.4.2.1.3.1.4 0l.5-.6c.1-.2.3-.2.5-.1l1.4.7c.2.1.3.2.3.4.1.3 0 .7-.1 1Z"/></svg>
+      <svg viewBox="0 0 24 24" width="20" height="20"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm5.1 14.1c-.2.6-1.2 1.2-1.7 1.2-.5.1-1 .1-1.7-.1-1.6-.5-3.2-1.6-4.4-3.1-.9-1-1.5-2.2-1.5-3.2 0-.6.3-1.3.8-1.7.2-.2.4-.2.6-.2h.5c.2 0 .3.1.4.4l.6 1.4c.1.2 0 .4-.1.5l-.4.5c-.1.1-.1.3 0 .4.5.9 1.5 1.9 2.6 2.4.2.1.3.1.4 0l.5-.6c.1-.2.3-.2.5-.1l1.4.7c.2.1.3.2.3.4.1.3 0 .7-.1 1Z"/></svg>
     </span>
     <span class="whatsapp-tooltip-text">WhatsApp VIP</span>
   </a>
@@ -1233,7 +1243,11 @@
   <!-- SITE FOOTER -->
   <footer class="site-footer" role="contentinfo">
     <div class="footer-inner-container">
-      <p class="footer-brand">Alta Joda <span>Fest</span></p>
+      <div class="footer-brand-row">
+        <img src="assets/instagram-avatar.jpg" alt="Logo Oficial Alta Joda" class="footer-official-logo">
+        <p class="footer-brand">Alta Joda <span>Fest</span></p>
+      </div>
+
       <p class="footer-venue-line">ZeyZey Miami · 353 NE 61st St, Miami, FL 33137</p>
       
       <nav class="footer-nav-links" aria-label="Enlaces al pie">
