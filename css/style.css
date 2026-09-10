@@ -128,47 +128,28 @@ button {
   box-sizing: border-box;
 }
 
-/* Brand Group: OFFICIAL INSTAGRAM LOGO */
-.brand-group {
-  display: flex;
-  align-items: center;
-  gap: 10px;
+/* Brand Typography Logo: Pure iconic typography (No square avatar) */
+.brand-typography-logo {
+  display: inline-flex;
+  align-items: baseline;
   text-decoration: none;
   flex-shrink: 0;
+  transition: transform 0.15s ease;
 }
-
-.brand-official-logo-img {
-  width: 40px;
-  height: 40px;
-  border-radius: var(--radius-pill);
-  border: 1.5px solid var(--border-color);
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
-  object-fit: cover;
-  flex-shrink: 0;
-  background: #FFF;
-}
-
-.brand-text-block {
-  display: flex;
-  flex-direction: column;
+.brand-typography-logo:hover {
+  transform: scale(1.02);
 }
 .brand-logo-text {
   font-family: var(--font-heading);
-  font-size: 20px;
+  font-size: clamp(20px, 4vw, 24px);
   text-transform: uppercase;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.03em;
   color: var(--text-dark);
   line-height: 1;
 }
-.brand-logo-text span {
-  color: var(--blue-arg);
-}
-.brand-sub-badge {
-  font-size: 10px;
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
+.brand-logo-text .word-fest {
   color: var(--red-fiesta);
+  margin-left: 2px;
 }
 
 /* Navigation links bar (Desktop only - Compact, perfectly proportioned) */
@@ -513,15 +494,28 @@ main {
   font-size: clamp(32px, 7vw, 64px);
   text-transform: uppercase;
   line-height: 0.94;
-  color: var(--text-dark);
+  color: #140E0C;
   margin-bottom: 8px;
 }
 .section-subtitle {
   font-size: clamp(15px, 3vw, 18px);
   font-weight: 600;
-  color: var(--text-muted);
+  color: #211613;
   max-width: 760px;
-  line-height: 1.5;
+  line-height: 1.55;
+}
+
+/* High Contrast rules for Dark Sections (Fotos & Entradas) */
+#section-fotos .section-title,
+#section-entradas .section-title {
+  color: #FFFFFF !important;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.4);
+}
+#section-fotos .section-subtitle,
+#section-entradas .section-subtitle {
+  color: #FFFFFF !important;
+  font-weight: 600;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -584,7 +578,13 @@ main {
    SECTION: INICIO (HERO WITH OFFICIAL LOGO & PHOTOS)
 =================================================== */
 #section-inicio {
-  background: var(--bg-dark);
+  background-color: var(--bg-dark);
+  background-image: 
+    linear-gradient(180deg, rgba(19, 14, 12, 0.82) 0%, rgba(19, 14, 12, 0.88) 50%, rgba(19, 14, 12, 0.96) 100%),
+    url('../assets/photos/fiesta-lights.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   color: var(--text-light);
   position: relative;
   overflow: hidden;
@@ -624,97 +624,39 @@ main {
   z-index: 2;
   align-items: center;
   padding: 24px 16px 40px;
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
 }
 @media (min-width: 900px) {
   .hero-layout-grid {
-    grid-template-columns: 1.15fr 1fr;
-    gap: 40px;
-    padding: 40px 24px 60px;
+    grid-template-columns: 1fr 1.25fr;
+    gap: 44px;
+    padding: 36px 24px 50px;
   }
 }
 
-/* Left Hero: Official Logo, Badges & Next Event */
+/* Left Hero: Pure Typography Logo & Next Event */
 .hero-content {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-.hero-badge-container {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
+/* HERO BRAND LOGO: Pure iconic typography (No square avatar) */
+.hero-brand-typography-wrap {
+  margin: 4px 0 6px;
 }
-.hero-tag-arg {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: var(--yellow-sol);
-  color: var(--text-dark);
-  border: 1px solid rgba(0,0,0,0.12);
-  border-radius: var(--radius-pill);
-  padding: 5px 12px;
-  font-weight: 800;
-  font-size: 11px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  box-shadow: var(--shadow-sm);
-}
-.hero-tag-host {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(250, 246, 239, 0.1);
-  color: var(--text-light);
-  border: 1px solid rgba(250, 246, 239, 0.2);
-  border-radius: var(--radius-pill);
-  padding: 5px 10px;
-  font-weight: 700;
-  font-size: 11px;
-}
-
-/* OFFICIAL INSTAGRAM LOGO DISPLAY IN HERO */
-.hero-official-logo-brand-block {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-  margin: 4px 0;
-}
-.hero-instagram-avatar-logo {
-  width: 84px;
-  height: 84px;
-  border-radius: var(--radius-lg);
-  border: 2px solid rgba(255,255,255,0.25);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-  object-fit: cover;
-  flex-shrink: 0;
-  background: #FFF;
-}
-@media (min-width: 600px) {
-  .hero-instagram-avatar-logo {
-    width: 100px;
-    height: 100px;
-  }
-}
-
-.hero-logo-titles {
-  display: flex;
-  flex-direction: column;
-}
-.hero-main-title {
+.hero-logo-typography {
   font-family: var(--font-heading);
-  font-weight: 400;
+  font-size: clamp(54px, 11vw, 92px);
   text-transform: uppercase;
-  line-height: 0.92;
+  line-height: 0.88;
   letter-spacing: -0.01em;
-  font-size: clamp(38px, 8.5vw, 66px);
   color: var(--text-light);
+  text-shadow: 0 4px 24px rgba(0, 0, 0, 0.5);
 }
-.hero-main-title .word-fest {
-  color: var(--blue-arg);
+.hero-logo-typography .word-fest {
+  color: var(--red-fiesta);
 }
 
 .hero-tagline {
@@ -859,58 +801,36 @@ main {
   gap: 12px;
 }
 
-.photos-showcase-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.photos-showcase-tag {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--blue-arg);
-}
-.photos-feed-link-chip {
-  display: inline-flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 12px;
-  font-weight: 800;
-  color: var(--yellow-sol);
-  text-decoration: underline;
-}
-
-/* 2x2 Clean Photo Collage Grid */
+/* 2x2 Clean Photo Collage Grid (Enlarged 25% for high visual impact) */
 .hero-photos-collage {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 10px;
+  gap: 14px;
 }
 @media (min-width: 600px) {
   .hero-photos-collage {
-    gap: 12px;
+    gap: 18px;
   }
 }
 
 .hero-photo-card {
   position: relative;
   background: var(--white);
-  padding: 6px 6px 8px;
-  border: 1px solid var(--border-subtle);
+  padding: 8px 8px 10px;
+  border: 1.5px solid rgba(255, 255, 255, 0.4);
   border-radius: var(--radius-sm);
-  box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.3);
   cursor: pointer;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 @media (min-width: 768px) {
-  .hero-photo-card.card-1 { transform: rotate(-1deg); }
-  .hero-photo-card.card-2 { transform: rotate(1deg); }
-  .hero-photo-card.card-3 { transform: rotate(0.8deg); }
-  .hero-photo-card.card-4 { transform: rotate(-0.8deg); }
+  .hero-photo-card.card-1 { transform: rotate(-1.2deg); }
+  .hero-photo-card.card-2 { transform: rotate(1.2deg); }
+  .hero-photo-card.card-3 { transform: rotate(0.9deg); }
+  .hero-photo-card.card-4 { transform: rotate(-0.9deg); }
   .hero-photo-card:hover {
-    transform: scale(1.02) rotate(0deg) !important;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+    transform: scale(1.04) rotate(0deg) !important;
+    box-shadow: 0 12px 32px rgba(0,0,0,0.45);
     z-index: 5;
   }
 }
@@ -919,20 +839,25 @@ main {
   width: 100%;
   aspect-ratio: 4/3;
   overflow: hidden;
-  border-radius: 4px;
+  border-radius: 6px;
 }
 .hero-photo-card .photo-img-wrap img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+.hero-photo-card:hover .photo-img-wrap img {
+  transform: scale(1.05);
 }
 
 .hero-photo-card .photo-caption {
-  font-size: 11px;
-  font-weight: 700;
+  font-size: 12px;
+  font-weight: 800;
   color: var(--text-dark);
   text-transform: uppercase;
-  margin-top: 5px;
+  margin-top: 6px;
+  padding: 2px 2px 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -1821,65 +1746,90 @@ main {
 /* ===================================================
    SECTION: CONTACTO
 =================================================== */
-.contact-grid-cards {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
-  gap: 16px;
-}
-.contact-highlight-card {
+/* LISTA SIMPLE DE REDES SOCIALES */
+.contact-social-list {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  background: var(--red-fiesta);
-  color: var(--white);
-  border-radius: var(--radius-md);
-  padding: 20px 18px;
-  box-shadow: 0 8px 24px rgba(229, 62, 38, 0.25);
-}
-.contact-highlight-card .platform-label {
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-.contact-highlight-card .platform-handle {
-  font-family: var(--font-heading);
-  font-size: 28px;
-  text-transform: uppercase;
-  line-height: 1;
-}
-.contact-highlight-card .platform-desc {
-  font-size: 13px;
-  font-weight: 600;
-  line-height: 1.45;
+  gap: 12px;
+  max-width: 680px;
 }
 
-.contact-quick-links-column {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.contact-action-box {
+.contact-social-item {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 16px;
   background: var(--white);
   border: 1.5px solid var(--border-subtle);
-  border-radius: var(--radius-sm);
-  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  padding: 14px 18px;
+  text-decoration: none;
   box-shadow: var(--shadow-sm);
-  font-weight: 700;
-  font-size: 14px;
-  color: var(--text-dark);
-  transition: transform 0.15s, border-color 0.15s;
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
 }
-.contact-action-box:hover {
-  transform: translateX(2px);
+.contact-social-item:hover {
+  transform: translateX(4px);
   border-color: var(--text-dark);
+  box-shadow: var(--shadow-main);
 }
-.contact-action-box.box-yellow {
+
+.contact-social-icon-wrap {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--white);
+}
+.icon-ig {
+  background: linear-gradient(45deg, #f09433, #dc2743, #bc1888);
+}
+.icon-tiktok {
+  background: #000000;
+  color: #EE1D52;
+}
+.icon-wa {
+  background: #25D366;
+}
+.icon-mail {
+  background: var(--red-fiesta);
+}
+.icon-city {
   background: var(--yellow-sol);
-  border-color: transparent;
+  color: var(--text-dark);
+}
+
+.contact-social-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+.contact-social-name {
+  font-family: var(--font-heading);
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--text-dark);
+  line-height: 1.1;
+}
+.contact-social-sub {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.contact-social-arrow {
+  font-size: 18px;
+  font-weight: 800;
+  color: var(--text-dark);
+  opacity: 0.5;
+  transition: opacity 0.15s, transform 0.15s;
+}
+.contact-social-item:hover .contact-social-arrow {
+  opacity: 1;
+  transform: translate(2px, -2px);
 }
 
 .sponsors-callout-card {
@@ -2135,23 +2085,21 @@ main {
 .footer-brand-row {
   display: flex;
   align-items: center;
-  gap: 12px;
 }
-.footer-official-logo {
-  width: 48px;
-  height: 48px;
-  border-radius: var(--radius-pill);
-  border: 2px solid var(--yellow-sol);
-  object-fit: cover;
-}
-.footer-brand {
+.footer-brand-typography {
   font-family: var(--font-heading);
   font-size: clamp(28px, 6vw, 44px);
   text-transform: uppercase;
   line-height: 0.9;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: transform 0.15s ease;
 }
-.footer-brand span {
-  color: var(--blue-arg);
+.footer-brand-typography:hover {
+  transform: scale(1.02);
+}
+.footer-brand-typography .word-fest {
+  color: var(--red-fiesta);
 }
 .footer-venue-line {
   font-size: 15px;
