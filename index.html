@@ -102,61 +102,19 @@
 
       <!-- Desktop Nav Links -->
       <nav class="header-nav-desktop" aria-label="Navegación principal">
-        <a href="#inicio" class="nav-link-btn active" data-target-section="inicio" data-i18n="inicio">Inicio</a>
-        <a href="#fechas" class="nav-link-btn" data-target-section="fechas" data-i18n="fechas">Próximas Fechas</a>
-        <a href="#remeras" class="nav-link-btn" data-target-section="remeras" data-i18n="remeras">Remeras MADE MOBB</a>
-        <a href="#fotos" class="nav-link-btn" data-target-section="fotos" data-i18n="fotos">Fotos & IG</a>
-        <a href="#entradas" class="nav-link-btn" data-target-section="entradas" data-i18n="entradas">Entradas</a>
-        <a href="#locacion" class="nav-link-btn" data-target-section="locacion" data-i18n="locacion">Dónde es</a>
-        <a href="#faq" class="nav-link-btn" data-target-section="faq" data-i18n="faq">FAQ</a>
-        <a href="#contacto" class="nav-link-btn" data-target-section="contacto" data-i18n="contacto">Contacto</a>
+        <a href="#inicio" class="nav-link-btn active" data-target-section="inicio" data-i18n="navInicio">Inicio</a>
+        <a href="#fechas" class="nav-link-btn" data-target-section="fechas" data-i18n="navFechas">Fechas</a>
+        <a href="#remeras" class="nav-link-btn" data-target-section="remeras" data-i18n="navRemeras">Remeras</a>
+        <a href="#fotos" class="nav-link-btn" data-target-section="fotos" data-i18n="navFotos">Fotos</a>
+        <a href="#entradas" class="nav-link-btn" data-target-section="entradas" data-i18n="navEntradas">Entradas</a>
+        <a href="#locacion" class="nav-link-btn" data-target-section="locacion" data-i18n="navUbicacion">Ubicación</a>
+        <a href="#faq" class="nav-link-btn" data-target-section="faq" data-i18n="navFaq">FAQ</a>
+        <a href="#contacto" class="nav-link-btn" data-target-section="contacto" data-i18n="navContacto">Contacto</a>
       </nav>
 
-      <!-- Header Actions: Dropdown, Lang switch, Tickets, Mobile Menu Button -->
+      <!-- Header Actions: Lang switch, Tickets, Mobile Menu Button -->
       <div class="header-actions">
         
-        <!-- Desktop Dropdown Popover Trigger -->
-        <div class="dropdown-wrapper">
-          <button type="button" id="desktop-dropdown-trigger" class="btn-dropdown-trigger" aria-haspopup="true" aria-expanded="false">
-            <span data-i18n="menuLabel">Secciones ▾</span>
-          </button>
-          
-          <div id="desktop-dropdown-popover" class="desktop-dropdown-popover" role="menu">
-            <a href="#inicio" class="popover-item active" data-target-section="inicio" role="menuitem">
-              <span class="popover-item-icon">🏠</span>
-              <span>Inicio (Fotos & Próxima)</span>
-            </a>
-            <a href="#fechas" class="popover-item" data-target-section="fechas" role="menuitem">
-              <span class="popover-item-icon">📅</span>
-              <span>Próximas Fechas & Tour</span>
-            </a>
-            <a href="#remeras" class="popover-item" data-target-section="remeras" role="menuitem">
-              <span class="popover-item-icon">👕</span>
-              <span>Remeras MADE MOBB</span>
-            </a>
-            <a href="#fotos" class="popover-item" data-target-section="fotos" role="menuitem">
-              <span class="popover-item-icon">📸</span>
-              <span>Fotos & Instagram Oficial</span>
-            </a>
-            <a href="#entradas" class="popover-item" data-target-section="entradas" role="menuitem">
-              <span class="popover-item-icon">🎟️</span>
-              <span>Precios & Entradas</span>
-            </a>
-            <a href="#locacion" class="popover-item" data-target-section="locacion" role="menuitem">
-              <span class="popover-item-icon">📍</span>
-              <span>Dónde es (Venues & Mapas)</span>
-            </a>
-            <a href="#faq" class="popover-item" data-target-section="faq" role="menuitem">
-              <span class="popover-item-icon">❓</span>
-              <span>Preguntas Frecuentes</span>
-            </a>
-            <a href="#contacto" class="popover-item" data-target-section="contacto" role="menuitem">
-              <span class="popover-item-icon">📬</span>
-              <span>Contacto & WhatsApp VIP</span>
-            </a>
-          </div>
-        </div>
-
         <!-- Language Switch -->
         <div class="lang-switch" role="group" aria-label="Selector de idioma">
           <button type="button" class="lang-btn active" data-lang="es" aria-pressed="true">ES</button>
@@ -172,7 +130,7 @@
         <!-- Mobile Menu Hamburger Button -->
         <button type="button" id="btn-mobile-menu-toggle" class="btn-mobile-menu-toggle" aria-label="Abrir Menú de Secciones">
           <span class="hamburger-bars" aria-hidden="true">☰</span>
-          <span>Menú</span>
+          <span class="menu-text-label">Menú</span>
         </button>
 
       </div>
@@ -572,9 +530,6 @@
 
         <!-- Section Navigation Footer -->
         <div class="section-next-footer">
-          <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú</span>
-          </button>
           <button type="button" class="btn-next-section" data-next-section="remeras">
             <span>Ver Remeras MADE MOBB ➔</span>
           </button>
@@ -698,9 +653,6 @@
         </div>
 
         <div class="section-next-footer">
-          <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú</span>
-          </button>
           <button type="button" class="btn-next-section" data-next-section="fotos">
             <span>Ver Fotos & Feed de Instagram ➔</span>
           </button>
@@ -874,9 +826,6 @@
         </div>
 
         <div class="section-next-footer">
-          <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú</span>
-          </button>
           <button type="button" class="btn-next-section" data-next-section="entradas">
             <span>Ver Precios & Entradas ➔</span>
           </button>
@@ -967,9 +916,6 @@
         </div>
 
         <div class="section-next-footer">
-          <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú</span>
-          </button>
           <button type="button" class="btn-next-section" data-next-section="locacion">
             <span>Ver Dónde es & Venues ➔</span>
           </button>
@@ -1021,9 +967,6 @@
         </div>
 
         <div class="section-next-footer">
-          <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú</span>
-          </button>
           <button type="button" class="btn-next-section" data-next-section="faq">
             <span>Ver Preguntas Frecuentes (FAQ) ➔</span>
           </button>
@@ -1112,9 +1055,6 @@
         </div>
 
         <div class="section-next-footer">
-          <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú</span>
-          </button>
           <button type="button" class="btn-next-section" data-next-section="contacto">
             <span>Ir a Contacto & Redes ➔</span>
           </button>
@@ -1190,9 +1130,6 @@
         </div>
 
         <div class="section-next-footer">
-          <button type="button" class="btn-open-menu-again">
-            <span>⚡ Explorar Menú</span>
-          </button>
           <button type="button" class="btn-next-section" data-next-section="inicio">
             <span>Volver al Inicio 🏠</span>
           </button>

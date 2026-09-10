@@ -167,6 +167,14 @@
       nextEventBadge: '🔥 Próxima Fiesta Confirmada',
       getTickets: 'Sacá tu entrada',
       seeAllDates: 'Ver todas las fechas ➔',
+      navInicio: 'Inicio',
+      navFechas: 'Fechas',
+      navRemeras: 'Remeras',
+      navFotos: 'Fotos',
+      navEntradas: 'Entradas',
+      navUbicacion: 'Ubicación',
+      navFaq: 'FAQ',
+      navContacto: 'Contacto',
       doors: 'Puertas',
       fromPrice: 'Desde',
       buyTicket: 'Sacar Entrada 🎟️',
@@ -211,6 +219,14 @@
       nextEventBadge: '🔥 Next Confirmed Party',
       getTickets: 'Get your tickets',
       seeAllDates: 'See all tour dates ➔',
+      navInicio: 'Home',
+      navFechas: 'Dates',
+      navRemeras: 'Merch',
+      navFotos: 'Photos',
+      navEntradas: 'Tickets',
+      navUbicacion: 'Venues',
+      navFaq: 'FAQ',
+      navContacto: 'Contact',
       doors: 'Doors',
       fromPrice: 'From',
       buyTicket: 'Get Tickets 🎟️',
@@ -249,13 +265,13 @@
 
   const SECTION_NAMES = {
     inicio: { es: 'Inicio', en: 'Home', icon: '🏠' },
-    fechas: { es: 'Próximas Fechas', en: 'Tour Dates', icon: '📅' },
-    remeras: { es: 'Remeras MADE MOBB', en: 'Merch Shirts', icon: '👕' },
-    fotos: { es: 'Fotos & Instagram', en: 'Photos & IG', icon: '📸' },
-    entradas: { es: 'Precios & Entradas', en: 'Ticket Tiers', icon: '🎟️' },
-    locacion: { es: 'Dónde es', en: 'Venues & Maps', icon: '📍' },
-    faq: { es: 'Preguntas Frecuentes', en: 'FAQ', icon: '❓' },
-    contacto: { es: 'Contacto & Redes', en: 'Contact', icon: '📬' }
+    fechas: { es: 'Fechas', en: 'Dates', icon: '📅' },
+    remeras: { es: 'Remeras', en: 'Merch', icon: '👕' },
+    fotos: { es: 'Fotos', en: 'Photos', icon: '📸' },
+    entradas: { es: 'Entradas', en: 'Tickets', icon: '🎟️' },
+    locacion: { es: 'Ubicación', en: 'Venues', icon: '📍' },
+    faq: { es: 'FAQ', en: 'FAQ', icon: '❓' },
+    contacto: { es: 'Contacto', en: 'Contact', icon: '📬' }
   };
 
   let currentLang = localStorage.getItem('alta_joda_lang') || 'es';
@@ -355,11 +371,21 @@
       }
     });
 
-    // Update nav links text
+    // Update nav links text (desktop)
     document.querySelectorAll('.nav-link-btn').forEach((btn) => {
       const secKey = btn.getAttribute('data-target-section');
       const info = SECTION_NAMES[secKey];
       if (info) btn.textContent = info[lang];
+    });
+
+    // Update drawer links text (mobile)
+    document.querySelectorAll('.mobile-drawer-item').forEach((item) => {
+      const secKey = item.getAttribute('data-target-section');
+      const info = SECTION_NAMES[secKey];
+      if (info) {
+        const textSpan = item.querySelector('span:last-child');
+        if (textSpan) textSpan.textContent = info[lang];
+      }
     });
 
     renderVenueNotes();
