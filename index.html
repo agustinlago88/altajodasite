@@ -210,38 +210,36 @@
     <section id="section-inicio" class="content-section active" aria-labelledby="hero-title">
       <div class="hero-glow-bg" aria-hidden="true"></div>
       
-      <div class="hero-layout-grid">
+      <div class="hero-container">
         
-        <!-- Left Hero: Typography Logo, Tagline & Next Event Card -->
-        <div class="hero-content">
-          
-          <!-- HERO BRAND LOGO: Pure iconic typography of Alta Joda Fest -->
-          <div class="hero-brand-typography-wrap">
-            <h1 id="hero-title" class="hero-logo-typography">
-              Alta<br>Joda<br><span class="word-fest">Fest</span>
-            </h1>
-          </div>
-
+        <!-- Header: Typography Logo & Tagline -->
+        <div class="hero-header-block">
+          <h1 id="hero-title" class="hero-logo-typography">
+            Alta Joda <span class="word-fest">Fest</span>
+          </h1>
           <p class="hero-tagline">
             <span data-i18n="cumbiaPerreo">Cumbia, Perreo y Fernet</span> — <span>since 2022</span>
           </p>
+        </div>
 
-          <!-- Featured Next Event Card -->
-          <div class="hero-next-event-card">
+        <!-- Featured Next Event: "A LO LARGO" (Horizontal Banner) directly below the title -->
+        <div class="hero-next-event-horizontal-card">
+          
+          <!-- Event Details (Left) -->
+          <div class="next-event-horiz-info">
             <div class="next-event-badge">
-              <span aria-hidden="true">⚡</span>
+              <span aria-hidden="true">⚡🔥</span>
               <span data-i18n="nextEventBadge">Próxima Fiesta Confirmada</span>
             </div>
-
             <div class="next-event-city">Miami · ZeyZey</div>
-            
             <div class="next-event-details">
               <span class="highlight-date">Sábado 3 de Octubre · Puertas 21:00 hs</span>
-              <span>353 NE 61st St, Miami, FL 33137 (Little River)</span>
-              <span>Entradas desde $25 · Venta oficial por Posh</span>
+              <span class="event-venue-meta">353 NE 61st St, Miami (Little River) · Entradas desde $25</span>
             </div>
+          </div>
 
-            <!-- Countdown Timer -->
+          <!-- Countdown Timer (Center) -->
+          <div class="next-event-horiz-countdown">
             <div class="event-countdown" aria-label="Cuenta regresiva para la fiesta">
               <div class="countdown-box">
                 <span id="cd-days" class="countdown-num">00</span>
@@ -260,63 +258,46 @@
                 <span class="countdown-lbl" data-i18n="secs">SEG</span>
               </div>
             </div>
-
-            <!-- Hero Action Buttons -->
-            <div class="hero-cta-group">
-              <a href="https://posh.vip/e/alta-joda-fest-miami" target="_blank" rel="noopener" class="btn-primary-tickets">
-                <span aria-hidden="true">🎟️</span>
-                <span data-i18n="getTickets">Sacá tu entrada</span>
-              </a>
-              
-              <button type="button" class="btn-secondary-link" onclick="AJApp.switchSection('fechas');">
-                <span data-i18n="seeAllDates">Ver todas las fechas ➔</span>
-              </button>
-            </div>
           </div>
+
+          <!-- Action Buttons (Right) -->
+          <div class="next-event-horiz-actions">
+            <a href="https://posh.vip/e/alta-joda-fest-miami" target="_blank" rel="noopener" class="btn-primary-tickets">
+              <span aria-hidden="true">🎟️</span>
+              <span data-i18n="getTickets">Sacá tu entrada</span>
+            </a>
+            <button type="button" class="btn-secondary-link" onclick="AJApp.switchSection('fechas');">
+              <span data-i18n="seeAllDates">Ver todas las fechas ➔</span>
+            </button>
+          </div>
+
         </div>
 
-        <!-- Right Hero: FOTOS EN EL INICIO (Live Photo Showcase - 25% Larger) -->
-        <div class="hero-photos-showcase">
-          <!-- 2x2 Collage Grid of interactive party photos -->
-          <div class="hero-photos-collage">
+        <!-- Centered & Enlarged Photos Showcase (Without captions/descriptions) -->
+        <div class="hero-photos-center-showcase">
+          <div class="hero-photos-collage centered-large">
             
-            <div class="hero-photo-card card-1" data-lightbox-src="assets/photos/fiesta-crowd.jpg" data-lightbox-caption="Pista explotada en ZeyZey Miami cantando cumbia y agitando banderas 🇦🇷">
+            <div class="hero-photo-card card-1" data-lightbox-src="assets/photos/fiesta-crowd.jpg" data-lightbox-caption="Pista explotada en ZeyZey Miami cantando cumbia y agitando banderas 🇦🇷" title="Pista Llena · ZeyZey Miami">
               <div class="photo-img-wrap">
                 <img src="assets/photos/fiesta-crowd.jpg" alt="Pista de baile de Alta Joda Fest con la multitud cantando" loading="eager">
               </div>
-              <div class="photo-caption">
-                <span>Pista Llena · Cumbia</span>
-                <span class="ig-heart-badge">❤️ 4.2k</span>
-              </div>
             </div>
 
-            <div class="hero-photo-card card-2" data-lightbox-src="assets/photos/fiesta-dj.jpg" data-lightbox-caption="Dustin Luke y DJ en vivo bajando cumbia villera, cuarteto y RKT 🔥">
+            <div class="hero-photo-card card-2" data-lightbox-src="assets/photos/fiesta-dj.jpg" data-lightbox-caption="Dustin Luke y DJ en vivo bajando cumbia villera, cuarteto y RKT 🔥" title="Dustin & DJ Set en vivo">
               <div class="photo-img-wrap">
                 <img src="assets/photos/fiesta-dj.jpg" alt="DJ y escenario en vivo de Alta Joda Fest" loading="eager">
               </div>
-              <div class="photo-caption">
-                <span>Dustin & DJ Set</span>
-                <span class="ig-heart-badge">❤️ 3.8k</span>
-              </div>
             </div>
 
-            <div class="hero-photo-card card-3" data-lightbox-src="assets/photos/fiesta-fernet.jpg" data-lightbox-caption="Jarra de Fernet con Coca 70/30 bien fría, clásica de la fiesta 🥃">
+            <div class="hero-photo-card card-3" data-lightbox-src="assets/photos/fiesta-fernet.jpg" data-lightbox-caption="Jarra de Fernet con Coca 70/30 bien fría, clásica de la fiesta 🥃" title="Fernet Branca 70/30">
               <div class="photo-img-wrap">
                 <img src="assets/photos/fiesta-fernet.jpg" alt="Brindis con Fernet con Coca en Alta Joda Fest" loading="lazy">
               </div>
-              <div class="photo-caption">
-                <span>Fernet Branca 70/30</span>
-                <span class="ig-heart-badge">❤️ 5.1k</span>
-              </div>
             </div>
 
-            <div class="hero-photo-card card-4" data-lightbox-src="assets/photos/fiesta-perreo.jpg" data-lightbox-caption="Bailando hasta que prenden las luces, sin dress code y con pura energía 🇦🇷✨">
+            <div class="hero-photo-card card-4" data-lightbox-src="assets/photos/fiesta-perreo.jpg" data-lightbox-caption="Bailando hasta que prenden las luces, sin dress code y con pura energía 🇦🇷✨" title="Perreo & Agite toda la noche">
               <div class="photo-img-wrap">
                 <img src="assets/photos/fiesta-perreo.jpg" alt="Gente bailando en Alta Joda Fest" loading="lazy">
-              </div>
-              <div class="photo-caption">
-                <span>Perreo & Agite</span>
-                <span class="ig-heart-badge">❤️ 3.5k</span>
               </div>
             </div>
 
