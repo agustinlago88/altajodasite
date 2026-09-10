@@ -204,6 +204,8 @@
       faqSub: 'Todo lo que tenés que saber antes de caer a la fiesta.',
       contactTitle: 'Contacto & Redes',
       contactSub: 'Escribinos para mesas VIP, fechas en tu ciudad o activaciones de marcas.',
+      backHome: 'Volver al Inicio',
+      menuSimple: 'Menú',
       days: 'DÍAS',
       hours: 'HS',
       mins: 'MIN',
@@ -256,6 +258,8 @@
       faqSub: 'Everything you need to know before joining the night.',
       contactTitle: 'Contact & Links',
       contactSub: 'Reach out for VIP tables, city requests or brand partnerships.',
+      backHome: 'Back to Home',
+      menuSimple: 'Menu',
       days: 'DAYS',
       hours: 'HRS',
       mins: 'MIN',
@@ -285,6 +289,15 @@
     }
 
     currentSection = targetId;
+
+    // Toggle body data attribute for CSS targeting
+    document.body.setAttribute('data-active-section', targetId);
+
+    // Show site-header ONLY in 'inicio', hide completely in all other sections
+    const siteHeader = document.querySelector('.site-header');
+    if (siteHeader) {
+      siteHeader.style.display = (targetId === 'inicio') ? '' : 'none';
+    }
 
     // Show target section, hide others
     document.querySelectorAll('.content-section').forEach((sec) => {
@@ -583,8 +596,8 @@
 
     // Hash change handler
     window.addEventListener('hashchange', () => {
-      const h = window.location.hash.replace(/^#/, '');
-      if (h && document.getElementById(`section-${h}`) && h !== currentSection) {
+      const h = window.location.hash.replace(/^#/, '') || 'inicio';
+      if (document.getElementById(`section-${h}`) && h !== currentSection) {
         switchSection(h, false);
       }
     });
