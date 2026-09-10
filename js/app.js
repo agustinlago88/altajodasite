@@ -293,12 +293,6 @@
     // Toggle body data attribute for CSS targeting
     document.body.setAttribute('data-active-section', targetId);
 
-    // Show site-header ONLY in 'inicio', hide completely in all other sections
-    const siteHeader = document.querySelector('.site-header');
-    if (siteHeader) {
-      siteHeader.style.display = (targetId === 'inicio') ? '' : 'none';
-    }
-
     // Show target section, hide others
     document.querySelectorAll('.content-section').forEach((sec) => {
       sec.classList.toggle('active', sec.id === `section-${targetId}`);
